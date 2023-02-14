@@ -17,8 +17,8 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="App">
-      <Router basename="/dash-alpha">
+    <div className="App" data-test="component-app">
+      <Router>
         <Header />
         <Route
           render={({ location }) => (

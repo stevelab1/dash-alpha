@@ -1,14 +1,41 @@
-import App from '../App'
-import { shallow } from 'enzyme'
+import { shallow } from "enzyme";
+import React from "react";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import Home from "../pages/Home";
 
-const setup = () => shallow(<App />)
+describe("Home", () => {
+  it("renders without crashing", () => {
+    const wrapper = shallow(<Home />);
+    expect(wrapper).toHaveLength(1);
+  });
 
+  it("renders the home page", () => {
+    const wrapper = shallow(<Home />);
+    expect(wrapper.find("[data-test='home-page']")).toHaveLength(1);
+  });
+});
 
-const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`)
+describe("About", () => {
+  it("renders without crashing", () => {
+    const wrapper = shallow(<About />);
+    expect(wrapper).toHaveLength(1);
+  });
 
-it('App Component Renders Without Error', () => {
-  const wrapper = setup()
-  const appComponent = findByTestAttr(wrapper, "component-app")
+  it("renders the about page", () => {
+    const wrapper = shallow(<About />);
+    expect(wrapper.find("[data-test='about-page']")).toHaveLength(1);
+  });
+});
 
-  expect(appComponent.length).toBe(1)
-})
+describe("Contact", () => {
+  it("renders without crashing", () => {
+    const wrapper = shallow(<Contact />);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it("renders the contact page", () => {
+    const wrapper = shallow(<Contact />);
+    expect(wrapper.find("[data-test='contact-page']")).toHaveLength(1);
+  });
+});
