@@ -1,5 +1,5 @@
-import { shallow } from "enzyme";
 import React from "react";
+import { shallow } from "enzyme";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";

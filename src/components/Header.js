@@ -14,9 +14,10 @@ function Header() {
       variant="light"
       sticky="top"
       className="pb-2"
+      data-test="header"
     >
       <Container fluid>
-        <Navbar.Brand>Dash (alpha)</Navbar.Brand>
+        <Navbar.Brand>Investig8</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-center">
