@@ -17,11 +17,10 @@ https://dash-alpha.netlify.app
 ## User stories
 
 ### Traveller
-Sara has just moved to the UK from Australia, she has become very confused when poeple say "chill" to her. She tried searching the word on google and came up with "cold" as a synonym...
+Sara recently moved to the UK from Australia and is having trouble understanding local slang: when someone says "chill," she doesn't know what it means. She tries to search for the word on Google but the results she gets are confusing. She needs a tool that will help her understand what "chill" means in the context of British English slang.
 
 ### Tutor
-Ali tutors his cousin with English at school since she has recently moved to the UK from Iran and can't understand her classes. He wants to show her how she can search the words she doesn't understand on the internet but as they Google the word "remarkable" they are faced with images of tablets...
-
+Ali is tutoring his cousin in English at school. She recently moved to the UK from Iran and is having trouble understanding some of the words she hears in class. When they try to search for the word "remarkable" on Google, they find images of tablets instead of the definition of the word. Ali needs a tool that will help his cousin quickly and easily find the definitions of English words, without confusing or irrelevant results.
 
 
 ### For local development:
