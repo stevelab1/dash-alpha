@@ -22,17 +22,17 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-center">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" className="App-link">
+              <Nav.Link as={Link} to="/" className="Link">
                 Home
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/about" className="App-link">
+              <Nav.Link as={Link} to="/about" className="Link">
                 About
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/contact" className="App-link">
+              <Nav.Link as={Link} to="/contact" className="Link">
                 Get in touch
               </Nav.Link>
             </Nav.Item>
