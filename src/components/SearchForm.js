@@ -18,7 +18,7 @@ const SearchForm = ({ onSearch }) => {
       <Form.Group className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter a word"
+          placeholder="Enter a word!"
           value={searchTerm}
           onChange={handleInputChange}
         />
