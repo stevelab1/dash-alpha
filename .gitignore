@@ -25,5 +25,8 @@ yarn-error.log*
 # temporary
 CICD.md
 charData.json
-
-
+testAPI.js
+WordTest.js
+wordsAPI.js
+test3.js
+testAPIbasic.js

@@ -37,7 +37,7 @@ Ali is tutoring his cousin in English at school. She recently moved to the UK fr
 
 ### Suggesting features, improvements, bug fixes
 
-https://github.com/stevelab1/dev-portfolio/issues
+https://github.com/stevelab1/investig8/issues
 
 ## Credits
 

@@ -1,0 +1,30 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('library.png');
+    background-size: center;
+    background-position: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  
+  .hero-container {
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .hero-text {
+    max-width: 450px;
+    margin: auto;
+    color: rgb(255, 255, 255);
+  }
+  
+  .search-form {
+    max-width: 450px;
+    margin: auto;
+  }
+  .search-form .btn {
+    margin-top: 10px;
+  }

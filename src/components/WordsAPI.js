@@ -46,13 +46,8 @@ function WordsAPI() {
           console.error(error);
     });
 
-    
-    
-
-    return (
-    <div>
-        
-    </div>
+    return(
+      <div></div>
     )
 }
 
