@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url('../assets/images/library.png');
+    background-image: url('library.png');
     background-size: center;
     background-position: center;
     padding-top: 20px;

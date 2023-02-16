@@ -1,7 +1,7 @@
-import './Hero.css';
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import SearchForm from './SearchForm';
+import "./Hero.css";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import SearchForm from "../SearchForm";
 
 const Hero = () => {
   const handleSearch = (searchTerm) => {
@@ -15,7 +15,10 @@ const Hero = () => {
           <Col xs={12} md={8} lg={7}>
             <div className="hero-text">
               <h1 className="hero-title">Whats the Word?</h1>
-              <p className="hero-subtitle">Search for a word, any word, make it fun? make it serious? We've got you covered!</p>
+              <p className="hero-subtitle">
+                Search for a word, any word, make it fun? make it serious? We've
+                got you covered!
+              </p>
             </div>
           </Col>
         </Row>

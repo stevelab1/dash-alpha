@@ -17,6 +17,10 @@
   color: var(--text-color);
 }
 
+.home {
+  color: var(--text-color);
+}
+
 /* fade classNames used to handle the routing animation */
 .fade-enter {
   opacity: 0;
