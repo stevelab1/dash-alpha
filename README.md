@@ -2,17 +2,15 @@
 
 ## Description
 
-
+Look up words. For learners, travellers, and logophiles.
 
 ## Deployment
 
-https://dash-alpha.netlify.app
+https://investig8.netlify.app
 
 ## Screenshot
 
-<!-- ![Screenshot of dash-alpha](src/images/screenshot.png) -->
-
-## Usage
+<!-- ![Screenshot of investig8](src/images/screenshot.png) -->
 
 ## User stories
 
@@ -22,6 +20,7 @@ Sara recently moved to the UK from Australia and is having trouble understanding
 ### Tutor
 Ali is tutoring his cousin in English at school. She recently moved to the UK from Iran and is having trouble understanding some of the words she hears in class. When they try to search for the word "remarkable" on Google, they find images of tablets instead of the definition of the word. Ali needs a tool that will help his cousin quickly and easily find the definitions of English words, without confusing or irrelevant results.
 
+## Usage
 
 ### For local development:
 
