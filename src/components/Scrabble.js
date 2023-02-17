@@ -44,33 +44,15 @@
 //   // Calculate the score for the current word
 //   const score = calculateScore(word);
 
-//   // Define the table rows for the letter values
-//   const tableRows = Object.keys(letterValues).map((letter) => (
-//     <tr key={letter}>
-//       <td>{letter}</td>
-//       <td>{letterValues[letter]}</td>
-//     </tr>
-//   ));
-
 //   return (
 //     <div>
 //       <h3>Scrabble Score for "{word}": {score}</h3>
-//       <table>
-//         <thead>
-//           <tr>
-//             <th>Letter</th>
-//             <th>Value</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {tableRows}
-//         </tbody>
-//       </table>
 //     </div>
 //   );
 // };
 
 // export default Scrabble;
+
 import React from 'react';
 
 const Scrabble = ({ word }) => {
@@ -117,9 +99,28 @@ const Scrabble = ({ word }) => {
   // Calculate the score for the current word
   const score = calculateScore(word);
 
+  // Define the table rows for the letters in the word and their values
+  const wordRows = word.split('').map((letter, index) => (
+    <tr key={index}>
+      <td>{letter}</td>
+      <td>{letterValues[letter.toUpperCase()] || 0}</td>
+    </tr>
+  ));
+
   return (
     <div>
       <h3>Scrabble Score for "{word}": {score}</h3>
+      <table>
+        {/* <thead>
+          <tr>
+            <th>Letter</th>
+            <th>Value</th>
+          </tr>
+        </thead> */}
+        <tbody>
+          {wordRows}
+        </tbody>
+      </table>
     </div>
   );
 };
