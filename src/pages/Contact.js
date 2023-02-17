@@ -8,7 +8,9 @@ const Contact = () => {
     return <p className="Pages">Thanks for your message!</p>;
   }
   return (
-    <div className="Pages" data-test="contact-page">
+    <div className="Pages" 
+    // data-test="contact-page"
+    >
       <p>Find us on: </p>
       <p>
         <a

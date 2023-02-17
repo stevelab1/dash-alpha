@@ -4,7 +4,9 @@ import WordsAPI from '../components/WordsAPI';
 
 const Home = () => {
   return (
-    <div className="home" data-test="home-page">
+    <div className="home" 
+    // data-test="home-page"
+    >
       <Hero />
       <WordsAPI />
     </div>
