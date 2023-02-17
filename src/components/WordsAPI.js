@@ -6,7 +6,7 @@ function WordsAPI() {
 
     let wordBreakdown = {};
 
-    // get the definitions, type of word, syllables (for pronounciation) and synonyms
+    // get the definitions, type of word, syllables (for pronounciation) and synonyms, for now just one definition
     const requestWord = {
         method: 'GET',
         url: `https://wordsapiv1.p.rapidapi.com/words/example`,
@@ -37,6 +37,22 @@ function WordsAPI() {
           
           Axios.request(requestAntonyms).then(function (response) {
               wordBreakdown.antonyms = response.data.antonyms;
+
+              // get rhyming words, currently only the first 10 words
+              const requestRhyming = {
+                method: 'GET',
+                url: 'https://wordsapiv1.p.rapidapi.com/words/example/rhymes',
+                headers: {
+                  'X-RapidAPI-Key': APIKEY,
+                  'X-RapidAPI-Host': BASEURL
+                }
+              };
+
+              Axios.request(requestRhyming).then(function (response) {
+                wordBreakdown.rhymes = response.data.rhymes.all.slice(0, 10);
+              }).catch(function (error) {
+                console.error(error);
+              });
           }).catch(function (error) {
               console.error(error);
           });
