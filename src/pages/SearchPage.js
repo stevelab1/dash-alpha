@@ -18,8 +18,33 @@ function SearchForm() {
         },
       });
 
+      // Get antonyms
+      const antonymsResponse = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/antonyms`, {
+        headers: {
+          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
+          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
+        },
+      });
+
+      // Get rhyming words
+      const rhymesResponse = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`, {
+        headers: {
+          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
+          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
+        },
+      });
+
       // Set the apiStatus state variable with the response data
-      setApiStatus(response.data);
+      setApiStatus({
+        word: response.data.word,
+        definition: response.data.results[0].definition,
+        partOfSpeech: response.data.results[0].partOfSpeech,
+        syllables: response.data.syllables.list,
+        synonyms: response.data.results[0].synonyms,
+        antonyms: antonymsResponse.data.antonyms,
+        rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
+        success: true,
+      });
     } catch (error) {
       // If there is an error, display it to the user
       setSearchError('There was an error with your search. Please try again.');
@@ -49,34 +74,34 @@ function WordCard() {
   } else {
     // Otherwise, display the word breakdown
     return (
-      <Card>
-        <Card.Body>
-          <Card.Title>{apiStatus.word}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{apiStatus.results[0].partOfSpeech}</Card.Subtitle>
-          <Card.Text>{apiStatus.results[0].definition}</Card.Text>
-          {/* <Card.Text>
-            <strong>Syllables:</strong> {apiStatus.syllables.list.join('-')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Synonyms:</strong> {apiStatus.results[0].synonyms.join(', ')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Antonyms:</strong> {apiStatus.antonyms.join(', ')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Rhyming words:</strong> {apiStatus.rhymes.join(', ')}
-          </Card.Text> */}
-        </Card.Body>
-      </Card>
+    <Card>
+    <Card.Body>
+    <Card.Title>{apiStatus.word}</Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">{apiStatus.partOfSpeech}</Card.Subtitle>
+    <Card.Text>{apiStatus.definition}</Card.Text>
+    <Card.Text>
+    <strong>Syllables:</strong> {apiStatus.syllables.join('-')}
+    </Card.Text>
+    <Card.Text>
+    <strong>Synonyms:</strong> {apiStatus.synonyms.join(', ')}
+    </Card.Text>
+    <Card.Text>
+    <strong>Antonyms:</strong> {apiStatus.antonyms.join(', ')}
+    </Card.Text>
+    <Card.Text>
+    <strong>Rhyming words:</strong> {apiStatus.rhymes.join('-')}
+    </Card.Text>
+    </Card.Body>
+    </Card>
     );
-  }
-}
-
-export default function SearchPage() {
-  return (
+    }
+    }
+    
+    export default function SearchPage() {
+    return (
     <div>
-      <SearchForm />
-      <WordCard />
+    <SearchForm />
+    <WordCard />
     </div>
-  );
-}
+    );
+    }
