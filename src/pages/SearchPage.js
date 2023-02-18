@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Spinner, Button } from "react-bootstrap";
 import WordCard from "../components/WordCard";
+import Scrabble from "../components/Scrabble";
 
 import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
@@ -9,6 +10,7 @@ import Hero from "../components/Hero/Hero";
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [searchedWord, setSearchedWord] = useState("");
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -66,6 +68,9 @@ function SearchPage() {
           success: true,
           error: false,
         });
+    
+        // Set the searched word
+        setSearchedWord(searchInput);
       } catch (error) {
         // If there is an error, display it to the user
         setApiStatus({
@@ -83,7 +88,7 @@ function SearchPage() {
         setIsLoading(false);
       }
     };
-
+    
     return (
       <div>
         <form onSubmit={handleSearch}>
@@ -93,37 +98,49 @@ function SearchPage() {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
           />
-           <Button
-  type="submit"
-  variant="primary"
-  disabled={isLoading}
-  style={{ position: 'relative', width: '100px', padding: '5px 35px 5px 18px' }}
->
-  {isLoading && (
-    <Spinner
-      as="span"
-      animation="grow"
-      size="sm"
-      role="status"
-      aria-hidden="true"
-      style={{ position: 'absolute', top: 0, right: 7, bottom: 0, margin: 'auto' }}
-    />
-  )}
-  Search
-</Button>
+          <Button
+            type="submit"
+            variant="primary"
+            disabled={isLoading}
+            style={{
+              position: "relative",
+              width: "100px",
+              padding: "5px 35px 5px 18px",
+            }}
+          >
+            {isLoading && (
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: 7,
+                  bottom: 0,
+                  margin: "auto",
+                }}
+              />
+            )}
+            Search
+          </Button>
         </form>
       </div>
     );
   }
 
   return (
-    <div>
-      <Hero>
-        <SearchForm setSearchError={setSearchError} />
-      </Hero>
-      <WordCard searchError={searchError} />
-    </div>
-  );
-}
+  <div>
+  <Hero>
+  <SearchForm setSearchError={setSearchError} />
+  </Hero>
+  <WordCard searchError={searchError} />
+  {searchedWord && <Scrabble word={searchedWord} />}
 
-export default SearchPage;
+  </div>
+  );
+  }
+  
+  export default SearchPage;
