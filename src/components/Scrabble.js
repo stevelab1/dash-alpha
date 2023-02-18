@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Scrabble = ({ word }) => {
   // Define the point values for each letter in Scrabble
@@ -45,7 +45,7 @@ const Scrabble = ({ word }) => {
   const score = calculateScore(word);
 
   // Define the table rows for the letters in the word and their values
-  const wordRows = word.split('').map((letter, index) => (
+  const wordRows = word.split("").map((letter, index) => (
     <tr key={index}>
       <td>{letter}</td>
       <td>{letterValues[letter.toUpperCase()] || 0}</td>
@@ -54,17 +54,17 @@ const Scrabble = ({ word }) => {
 
   return (
     <div>
-      <h3>Scrabble Score for "{word}": {score}</h3>
+      <h3>
+        Scrabble Score for "{word}": {score}
+      </h3>
       <table>
-        {/* <thead>
+        <thead>
           <tr>
             <th>Letter</th>
-            <th>Value</th>
+            <th>Score</th>
           </tr>
-        </thead> */}
-        <tbody>
-          {wordRows}
-        </tbody>
+        </thead>
+        <tbody>{wordRows}</tbody>
       </table>
     </div>
   );
