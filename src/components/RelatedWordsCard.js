@@ -29,17 +29,27 @@ function RelatedWordsCard() {
           <Card.Subtitle className="mb-2 text-muted">
           </Card.Subtitle>
           <Card.Text>{apiStatus.definition}</Card.Text>
-            
-            {/* synonyms card */}
-            <Card className="synonms-card">
-                <Card.Body>
-                    <Card.Title>Synonyms</Card.Title>
-                    <ul>
-                        {generateList(apiStatus.synonyms)}
-                    </ul>
-                </Card.Body>
-            </Card>
+            <div className="d-flex flex-row">
+                {/* synonyms card */}
+                <Card className="synonms-card">
+                    <Card.Body>
+                        <Card.Title>Synonyms</Card.Title>
+                        <ul>
+                            {generateList(apiStatus.synonyms)}
+                        </ul>
+                    </Card.Body>
+                </Card>
 
+                {/* antonyms card */}
+                <Card className="antonyms-card">
+                    <Card.Body>
+                        <Card.Title>Antonyms</Card.Title>
+                        <ul>
+                            {generateList(apiStatus.antonyms)}
+                        </ul>
+                    </Card.Body>
+                </Card>
+            </div>
         </Card.Body>
       </Card>
     );
