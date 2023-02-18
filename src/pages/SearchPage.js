@@ -7,7 +7,7 @@ import { calculateScrabbleScore } from "../utils/scrabbleUtils";
 import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 import Hero from "../components/Hero/Hero";
-import RelatedWordsCard from '../components/RelatedWordsCard';
+import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");

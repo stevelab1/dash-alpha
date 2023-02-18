@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Row, Card } from "react-bootstrap";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../../context/SearchContext";
 
 function generateList(words) {
     return (words.map((item) => {
@@ -32,7 +32,7 @@ function RelatedWordsCard() {
                     {/* rhymes card */}
                     <Card className="rhymes-card col-12 col-md-3 my-2">
                         <Card.Body>
-                            <Card.Title className="p-0 m-3">Rhyming Words</Card.Title>
+                            <Card.Title className="p-0 mb-3">Rhyming Words</Card.Title>
                             <ul className="list-group">
                                 {generateList(apiStatus.rhymes)}
                             </ul>
@@ -42,7 +42,7 @@ function RelatedWordsCard() {
                     {/* synonyms card */}
                     <Card className="synonms-card col-12 col-md-3 my-2">
                         <Card.Body>
-                            <Card.Title className="p-0 m-3">Synonyms</Card.Title>
+                            <Card.Title className="p-0 mb-3">Synonyms</Card.Title>
                             <ul className="list-group">
                                 {generateList(apiStatus.synonyms)}
                             </ul>
@@ -52,7 +52,7 @@ function RelatedWordsCard() {
                     {/* antonyms card */}
                     <Card className="antonyms-card col-12 col-md-3 my-2">
                         <Card.Body>
-                            <Card.Title className="p-0 m-3">Antonyms</Card.Title>
+                            <Card.Title className="p-0 mb-3">Antonyms</Card.Title>
                             <ul className="list-group">
                                 {generateList(apiStatus.antonyms)}
                             </ul>
