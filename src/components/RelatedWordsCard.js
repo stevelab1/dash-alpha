@@ -30,6 +30,16 @@ function RelatedWordsCard() {
           </Card.Subtitle>
           <Card.Text>{apiStatus.definition}</Card.Text>
             <div className="d-flex flex-row">
+                {/* rhymes card */}
+                <Card className="rhymes-card">
+                    <Card.Body>
+                        <Card.Title>Rhyming Words</Card.Title>
+                        <ul>
+                            {generateList(apiStatus.rhymes)}
+                        </ul>
+                    </Card.Body>
+                </Card>
+
                 {/* synonyms card */}
                 <Card className="synonms-card">
                     <Card.Body>
