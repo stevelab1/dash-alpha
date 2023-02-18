@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Spinner, Button } from "react-bootstrap";
 import WordCard from "../components/WordCard";
 
 import { SearchContext } from "../context/SearchContext";
@@ -7,6 +8,7 @@ import Hero from "../components/Hero/Hero";
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -14,6 +16,7 @@ function SearchPage() {
 
     const handleSearch = async (event) => {
       event.preventDefault();
+      setIsLoading(true);
       try {
         // Make an API call to get the word breakdown
         const response = await axios.get(
@@ -76,6 +79,8 @@ function SearchPage() {
           success: false,
           error: true,
         });
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -88,7 +93,24 @@ function SearchPage() {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
           />
-          <button type="submit">Search</button>
+           <Button
+  type="submit"
+  variant="primary"
+  disabled={isLoading}
+  style={{ position: 'relative', width: '100px', padding: '5px 35px 5px 18px' }}
+>
+  {isLoading && (
+    <Spinner
+      as="span"
+      animation="grow"
+      size="sm"
+      role="status"
+      aria-hidden="true"
+      style={{ position: 'absolute', top: 0, right: 7, bottom: 0, margin: 'auto' }}
+    />
+  )}
+  Search
+</Button>
         </form>
       </div>
     );
