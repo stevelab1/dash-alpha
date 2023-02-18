@@ -1,0 +1,25 @@
+li {
+  font-size: 20px;
+}
+
+.rhymes-card,
+.rhymes-card ul li {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.synonyms-card,
+.synonyms-card ul li {
+  color: #000000;
+  background-color: #888888;
+}
+
+.antonyms-card,
+.antonyms-card ul li {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.related-words-card {
+  background-color: #f2f2f2;
+}
