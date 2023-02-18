@@ -20,6 +20,10 @@ function DictionaryAPI() {
         if (!wordBreakdown.phonetics) {
             wordBreakdown.phoneticsError = 'Sorry, there is no sound file available';
         }
+
+        // remove when finished
+        console.log(wordBreakdown);
+        
     }).catch(function (error) {
         console.error(error);
     });

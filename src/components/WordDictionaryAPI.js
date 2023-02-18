@@ -25,6 +25,9 @@ function WordDictionaryAPI() {
             example1: response.data.example[0],
             example2: response.data.example[1]
           }
+
+          // remove when finished
+          console.log(wordBreakdown);
         }).catch(function (error) {
           console.error(error);
     });

@@ -50,6 +50,9 @@ function WordsAPI() {
 
               Axios.request(requestRhyming).then(function (response) {
                 wordBreakdown.rhymes = response.data.rhymes.all.slice(0, 10);
+
+                // remove when finished
+                console.log(wordBreakdown);
               }).catch(function (error) {
                 console.error(error);
               });
@@ -57,7 +60,6 @@ function WordsAPI() {
               console.error(error);
           });
 
-          console.log(wordBreakdown);
       }).catch(function (error) {
           console.error(error);
     });
