@@ -1,107 +1,107 @@
-import React, { useContext, useState } from 'react';
-import { Card } from 'react-bootstrap';
-import { SearchContext } from '../context/SearchContext';
-import axios from 'axios';
+import React, { useContext, useState } from "react";
+import WordCard from "../components/WordCard";
 
-function SearchForm() {
-  const { searchInput, setSearchInput, setApiStatus } = useContext(SearchContext);
-  const [searchError, setSearchError] = useState('');
+import { SearchContext } from "../context/SearchContext";
+import axios from "axios";
+import Hero from "../components/Hero/Hero";
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    try {
-      // Make an API call to get the word breakdown
-      const response = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}`, {
-        headers: {
-          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-        },
-      });
+function SearchPage() {
+  const [searchError, setSearchError] = useState("");
 
-      // Get antonyms
-      const antonymsResponse = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/antonyms`, {
-        headers: {
-          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-        },
-      });
+  function SearchForm() {
+    const { searchInput, setSearchInput, setApiStatus } =
+      useContext(SearchContext);
 
-      // Get rhyming words
-      const rhymesResponse = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`, {
-        headers: {
-          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-        },
-      });
+    const handleSearch = async (event) => {
+      event.preventDefault();
+      try {
+        // Make an API call to get the word breakdown
+        const response = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
 
-      // Set the apiStatus state variable with the response data
-      setApiStatus({
-        word: response.data.word,
-        definition: response.data.results[0].definition,
-        partOfSpeech: response.data.results[0].partOfSpeech,
-        syllables: response.data.syllables.list,
-        synonyms: response.data.results[0].synonyms,
-        antonyms: antonymsResponse.data.antonyms,
-        rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
-        success: true,
-      });
-    } catch (error) {
-      // If there is an error, display it to the user
-      setSearchError('There was an error with your search. Please try again.');
-    }
-  };
+        // Get antonyms
+        const antonymsResponse = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}/antonyms`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
+
+        // Get rhyming words
+        const rhymesResponse = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
+
+        // Set the apiStatus state variable with the response data
+        setApiStatus({
+          word: response.data.word,
+          definition: response.data.results[0].definition,
+          partOfSpeech: response.data.results[0].partOfSpeech,
+          syllables: response.data.syllables.list,
+          synonyms: response.data.results[0].synonyms,
+          antonyms: antonymsResponse.data.antonyms,
+          rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
+          success: true,
+          error: false,
+        });
+      } catch (error) {
+        // If there is an error, display it to the user
+        setApiStatus({
+          word: "",
+          definition: "",
+          partOfSpeech: "",
+          syllables: [],
+          synonyms: [],
+          antonyms: [],
+          rhymes: [],
+          success: false,
+          error: true,
+        });
+      }
+    };
+
+    return (
+      <div>
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Enter a word"
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Enter a word" value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
-        <button type="submit">Search</button>
-      </form>
-      <p>{searchError}</p>
+      <Hero>
+        <SearchForm setSearchError={setSearchError} />
+      </Hero>
+      <WordCard searchError={searchError} />
     </div>
   );
 }
 
-function WordCard() {
-  const { apiStatus } = useContext(SearchContext);
-
-  if (Object.keys(apiStatus).length === 0) {
-    // If there is no data yet, display a message to the user
-    return <p>Please enter a search term above.</p>;
-  } else if (apiStatus.success === false) {
-    // If the API call was not successful, display an error message
-    return <p>There was an error with your search. Please try again.</p>;
-  } else {
-    // Otherwise, display the word breakdown
-    return (
-    <Card>
-    <Card.Body>
-    <Card.Title>{apiStatus.word}</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">{apiStatus.partOfSpeech}</Card.Subtitle>
-    <Card.Text>{apiStatus.definition}</Card.Text>
-    <Card.Text>
-    <strong>Syllables:</strong> {apiStatus.syllables.join('-')}
-    </Card.Text>
-    <Card.Text>
-    <strong>Synonyms:</strong> {apiStatus.synonyms.join(', ')}
-    </Card.Text>
-    <Card.Text>
-    <strong>Antonyms:</strong> {apiStatus.antonyms.join(', ')}
-    </Card.Text>
-    <Card.Text>
-    <strong>Rhyming words:</strong> {apiStatus.rhymes.join('-')}
-    </Card.Text>
-    </Card.Body>
-    </Card>
-    );
-    }
-    }
-    
-    export default function SearchPage() {
-    return (
-    <div>
-    <SearchForm />
-    <WordCard />
-    </div>
-    );
-    }
+export default SearchPage;
