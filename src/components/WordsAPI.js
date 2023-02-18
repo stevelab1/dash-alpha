@@ -17,7 +17,6 @@ function WordsAPI() {
       };
       
       Axios.request(requestWord).then(function (response) {
-          console.log(response.data);
           wordBreakdown = {
             word: 'example',
             definition: response.data.results[0].definition,

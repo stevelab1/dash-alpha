@@ -16,11 +16,10 @@ function DictionaryAPI() {
                 wordBreakdown.phonetics = response.data[0].phonetics[i].audio;
             }
         }
-        if (response.data[0].meanings[0].definitions[0].example) {
-            console.log('examples exist');
+
+        if (!wordBreakdown.phonetics) {
+            wordBreakdown.phoneticsError = 'Sorry, there is no sound file available';
         }
-        console.log(response.data);
-        console.log(wordBreakdown);
     }).catch(function (error) {
         console.error(error);
     });
