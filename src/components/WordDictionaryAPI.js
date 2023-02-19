@@ -21,10 +21,8 @@ function WordDictionaryAPI() {
     };
       
     Axios.request(requestExample).then(function (response) {
-          wordBreakdown = {
-            example1: response.data.example[0],
-            example2: response.data.example[1]
-          }
+          // for now just three examples
+          wordBreakdown.examples = [response.data.example[0],response.data.example[1],response.data.example[2]]
 
           // remove when finished
           console.log(wordBreakdown);
