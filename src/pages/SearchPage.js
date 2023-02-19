@@ -9,12 +9,16 @@ import axios from "axios";
 import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
 import PronounciationCard from '../components/PronounciationCard/PronounciationCard';
+import Picture from "../components/Picture";
+import ExamplesBackgroundCard from '../components/ExamplesBackgroundCard/ExamplesBackgroundCard';
+
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
   const [scrabbleScore, setScrabbleScore] = useState(0);
+
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -148,10 +152,20 @@ function SearchPage() {
       <Hero>
         <SearchForm setSearchError={setSearchError} />
       </Hero>
-      <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-6">
+            <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+          </div>
+          <div className="col-md-6">
+            <Picture word={searchedWord} />
+          </div>
+        </div>
+      </div>
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
       <PronounciationCard />
+      <ExamplesBackgroundCard />
     </div>
   );
 }
