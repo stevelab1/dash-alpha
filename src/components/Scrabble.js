@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
 const Scrabble = ({ word }) => {
   // Define the point values for each letter in Scrabble
@@ -44,30 +45,34 @@ const Scrabble = ({ word }) => {
   // Calculate the score for the current word
   const score = calculateScore(word);
 
-  // Define the table rows for the letters in the word and their values
-  const wordRows = word.split("").map((letter, index) => (
-    <tr key={index}>
-      <td>{letter}</td>
-      <td>{letterValues[letter.toUpperCase()] || 0}</td>
-    </tr>
-  ));
+  // Define the list of letter scores as an array of objects
+  const letterScores = word.split("").map((letter, index) => ({
+    letter,
+    score: letterValues[letter.toUpperCase()] || 0,
+  }));
 
   return (
-    <div>
-      <h3>
-        Scrabble Score for "{word}": {score}
-      </h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Letter</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>{wordRows}</tbody>
-      </table>
+    <div className="row">
+      <div className="col-md-4">
+        <h3>Your Scrabble Score is: {score}</h3>
+      </div>
+      <div className="col-md-8">
+        <div className="row">
+          {letterScores.map((letterScore, index) => (
+            <div className="col-md-2" key={index}>
+              <Card>
+                <div className="text-center">
+                  <div className="scrabble-tile-letter">{letterScore.letter}</div>
+                  <div className="scrabble-tile-score">{letterScore.score}</div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Scrabble;
+

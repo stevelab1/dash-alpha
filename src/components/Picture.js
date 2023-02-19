@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "react-bootstrap";
+// import Card from "react-bootstrap";
 
 const Picture = ({ word }) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -23,7 +23,7 @@ const Picture = ({ word }) => {
 
   return (
     <div>
-      {imageUrl && <img src={imageUrl} alt="pexels" />}
+      {imageUrl && <img src={imageUrl} alt="pexels" className="img-fluid rounded" />}
     </div>
   );
 };
