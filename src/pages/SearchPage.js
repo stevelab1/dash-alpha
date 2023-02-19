@@ -8,13 +8,16 @@ import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
+import Picture from "../components/Picture";
 import ExamplesBackgroundCard from '../components/ExamplesBackgroundCard/ExamplesBackgroundCard';
+
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
   const [scrabbleScore, setScrabbleScore] = useState(0);
+
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -151,6 +154,7 @@ function SearchPage() {
       <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
+      <Picture word={searchedWord} />
       <ExamplesBackgroundCard />
     </div>
   );
