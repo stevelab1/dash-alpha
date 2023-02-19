@@ -9,6 +9,8 @@ import axios from "axios";
 import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
 import Picture from "../components/Picture";
+import ExamplesBackgroundCard from '../components/ExamplesBackgroundCard/ExamplesBackgroundCard';
+
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
@@ -153,6 +155,7 @@ function SearchPage() {
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
       <Picture word={searchedWord} />
+      <ExamplesBackgroundCard />
     </div>
   );
 }
