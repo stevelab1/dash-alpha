@@ -13,7 +13,9 @@ function DictionaryAPI() {
         // this only takes the sound clip url when the audio property contains a value
         for (let i = 0; i < response.data[0].phonetics.length; i++) {
             if (response.data[0].phonetics[i].audio) {
-                wordBreakdown.phonetics = response.data[0].phonetics[i].audio;
+                // if the link starts with / add https: to the string, otherwise an error will occur
+                (response.data[0].phonetics[i].audio.atChar(0) === '/') ? 
+                wordBreakdown.phonetics = `https:${response.data[0].phonetics[i].audio}` : wordBreakdown.phonetics = response.data[0].phonetics[i].audio;
             }
         }
 
