@@ -151,10 +151,19 @@ function SearchPage() {
       <Hero>
         <SearchForm setSearchError={setSearchError} />
       </Hero>
-      <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-6">
+            <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+          </div>
+          <div className="col-md-6">
+            <Picture word={searchedWord} />
+          </div>
+        </div>
+      </div>
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
-      <Picture word={searchedWord} />
+
       <ExamplesBackgroundCard />
     </div>
   );
