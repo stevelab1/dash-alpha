@@ -4,11 +4,14 @@ import { SearchContext } from "../../context/SearchContext";
 
 import "./PronounciationCard.css";
 
-function RelatedWordsCard() {
+function PronounciationCard() {
   const { apiStatus } = useContext(SearchContext);
 
+  const audio = new Audio(apiStatus.phonetics);
+
   const handleClick = () => {
-    apiStatus.phonetics.play();
+    audio.play();
+
   }
 
   // if there is no api information display nothing
@@ -38,4 +41,4 @@ function RelatedWordsCard() {
   }
 }
 
-export default RelatedWordsCard;
+export default PronounciationCard;
