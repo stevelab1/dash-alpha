@@ -1,10 +1,16 @@
 
-import axios from 'axios';
-// const axios = require("axios");
+import Axios from 'axios';
+
 function urbanAPI() {
+
+
+
+
+
     const options = {
         method: 'GET',
         url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
+
         params: {
             term: "bruv"
         },
@@ -13,24 +19,20 @@ function urbanAPI() {
             'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
         }
     };
-    axios.request(options).then(function (response) {
-        console.log(response.data);
-    })
-    .catch(function (error) {
+
+    Axios.request(options).then(function (response) {
+        console.log(response.data.list[0].definition);
+        console.log(response.data.list[0].example);
+
+    }).catch(function (error) {
         console.error(error);
     });
-    //console.log(response);
-    //const response = response
-    return (
-<div>
 
-</div>
+    return (
+        <div>
+        </div>
     )
-        // id: 'urbanWord',
-        // definition: list[0].definition,
-        // example: response[0].example,
-    
-        
+
 };
 export default urbanAPI;
 
