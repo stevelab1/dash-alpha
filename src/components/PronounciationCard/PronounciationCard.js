@@ -7,9 +7,15 @@ import "./PronounciationCard.css";
 function RelatedWordsCard() {
   const { apiStatus } = useContext(SearchContext);
 
+  const handleClick = () => {
+    apiStatus.phonetics.play();
+  }
+
   // if there is no api information display nothing
   if (Object.keys(apiStatus).length === 0) {
     return <div></div>;
+//   } else if (!(apiStatus.phonetics)) {
+//     return <div></div>;
   } else {
     // Otherwise, display the synonyms, antonyms and rhyming words
     return (
@@ -18,11 +24,11 @@ function RelatedWordsCard() {
           <Card.Body className="p-0 m-0">
           <div className="d-flex flex-column flex-md-row justify-content-evenly pb-3">
             <div className="syllables">
-              <h5>Ready to pronounce it?</h5>
-              <p>{apiStatus.syllables.join(' - ')}</p>
+              <h3>Ready to pronounce it?</h3>
+              <p className="syllable-breakdown">{apiStatus.syllables.join(' - ')}</p>
             </div>
             <div className="sound">
-              <button>Play <i class="fas fa-volume-high"></i></button>
+              <button className="play-button rounded" onClick={handleClick}>Play    <i className="fas fa-volume-high"></i></button>
             </div>
           </div>
           </Card.Body>
