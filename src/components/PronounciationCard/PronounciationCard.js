@@ -4,16 +4,6 @@ import { SearchContext } from "../../context/SearchContext";
 
 import "./PronounciationCard.css";
 
-// function generateList(words) {
-//   return words.map((item) => {
-//     return (
-//       <li className="list-group-item border-0" key={item}>
-//         {item}
-//       </li>
-//     );
-//   });
-// }
-
 function RelatedWordsCard() {
   const { apiStatus } = useContext(SearchContext);
 
@@ -29,7 +19,7 @@ function RelatedWordsCard() {
           <div className="d-flex flex-column flex-md-row justify-content-evenly pb-3">
             <div className="syllables">
               <h5>Ready to pronounce it?</h5>
-              
+              <p>{apiStatus.syllables.join(' - ')}</p>
             </div>
             <div className="sound">
 
