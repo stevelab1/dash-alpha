@@ -1,82 +1,157 @@
-import React, { useContext, useState } from 'react';
-import { Card } from 'react-bootstrap';
-import { SearchContext } from '../context/SearchContext';
-import axios from 'axios';
+import React, { useContext, useState } from "react";
+import { Spinner, Button } from "react-bootstrap";
+import WordCard from "../components/WordCard";
+import Scrabble from "../components/Scrabble";
+import { calculateScrabbleScore } from "../utils/scrabbleUtils";
 
-function SearchForm() {
-  const { searchInput, setSearchInput, setApiStatus } = useContext(SearchContext);
-  const [searchError, setSearchError] = useState('');
+import { SearchContext } from "../context/SearchContext";
+import axios from "axios";
+import Hero from "../components/Hero/Hero";
+import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    try {
-      // Make an API call to get the word breakdown
-      const response = await axios.get(`https://wordsapiv1.p.rapidapi.com/words/${searchInput}`, {
-        headers: {
-          'X-RapidAPI-Key': '96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1',
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-        },
-      });
+function SearchPage() {
+  const [searchError, setSearchError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchedWord, setSearchedWord] = useState("");
+  const [scrabbleScore, setScrabbleScore] = useState(0);
 
-      // Set the apiStatus state variable with the response data
-      setApiStatus(response.data);
-    } catch (error) {
-      // If there is an error, display it to the user
-      setSearchError('There was an error with your search. Please try again.');
-    }
-  };
+  function SearchForm() {
+    const { searchInput, setSearchInput, setApiStatus } =
+      useContext(SearchContext);
 
-  return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Enter a word" value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
-        <button type="submit">Search</button>
-      </form>
-      <p>{searchError}</p>
-    </div>
-  );
-}
+    const handleSearch = async (event) => {
+      event.preventDefault();
+      setIsLoading(true);
+      try {
+        // Make an API call to get the word breakdown
+        const response = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
 
-function WordCard() {
-  const { apiStatus } = useContext(SearchContext);
+        // Get antonyms
+        const antonymsResponse = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}/antonyms`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
 
-  if (Object.keys(apiStatus).length === 0) {
-    // If there is no data yet, display a message to the user
-    return <p>Please enter a search term above.</p>;
-  } else if (apiStatus.success === false) {
-    // If the API call was not successful, display an error message
-    return <p>There was an error with your search. Please try again.</p>;
-  } else {
-    // Otherwise, display the word breakdown
+        // Get rhyming words
+        const rhymesResponse = await axios.get(
+          `https://wordsapiv1.p.rapidapi.com/words/${searchInput}/rhymes`,
+          {
+            headers: {
+              "X-RapidAPI-Key":
+                "96ffecab55msh5610f9306675572p1e30cbjsn609e7afc48d1",
+              "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+            },
+          }
+        );
+
+        // Set the apiStatus state variable with the response data
+        setApiStatus({
+          word: response.data.word,
+          definition: response.data.results[0].definition,
+          partOfSpeech: response.data.results[0].partOfSpeech,
+          syllables: response.data.syllables.list,
+          synonyms: response.data.results[0].synonyms,
+          antonyms: antonymsResponse.data.antonyms,
+          rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
+          success: true,
+          error: false,
+        });
+
+        // Set the searched word
+        setSearchedWord(searchInput);
+
+        // Calculate the Scrabble score for the searched word
+        setScrabbleScore(calculateScrabbleScore(searchInput));
+      } catch (error) {
+        // If there is an error, still set the searched word to the search input, and calculate the Scrabble score for it
+        setSearchedWord(searchInput);
+        setScrabbleScore(calculateScrabbleScore(searchInput));
+
+        // Set the apiStatus state variable to indicate the error
+        setApiStatus({
+          word: "",
+          definition: "",
+          partOfSpeech: "",
+          syllables: [],
+          synonyms: [],
+          antonyms: [],
+          rhymes: [],
+          success: false,
+          error: true,
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     return (
-      <Card>
-        <Card.Body>
-          <Card.Title>{apiStatus.word}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{apiStatus.results[0].partOfSpeech}</Card.Subtitle>
-          <Card.Text>{apiStatus.results[0].definition}</Card.Text>
-          {/* <Card.Text>
-            <strong>Syllables:</strong> {apiStatus.syllables.list.join('-')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Synonyms:</strong> {apiStatus.results[0].synonyms.join(', ')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Antonyms:</strong> {apiStatus.antonyms.join(', ')}
-          </Card.Text>
-          <Card.Text>
-            <strong>Rhyming words:</strong> {apiStatus.rhymes.join(', ')}
-          </Card.Text> */}
-        </Card.Body>
-      </Card>
+      <div>
+        <form onSubmit={handleSearch}>
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Enter a word"
+              value={searchInput}
+              onChange={(event) => setSearchInput(event.target.value)}
+            />
+            <Button
+              type="submit"
+              className="btn btn-primary"
+              disabled={isLoading}
+              style={{
+                position: "relative",
+                width: "100px",
+                padding: "5px 35px 5px 18px",
+              }}
+            >
+              {isLoading && (
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    right: 7,
+                    bottom: 0,
+                    margin: "auto",
+                  }}
+                />
+              )}
+              Search
+            </Button>
+          </div>
+        </form>
+      </div>
     );
   }
-}
-
-export default function SearchPage() {
   return (
     <div>
-      <SearchForm />
-      <WordCard />
+      <Hero>
+        <SearchForm setSearchError={setSearchError} />
+      </Hero>
+      <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+      {searchedWord && <Scrabble word={searchedWord} />}
+      <RelatedWordsCard />
     </div>
   );
 }
+
+export default SearchPage;

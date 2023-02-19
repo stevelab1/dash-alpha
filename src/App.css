@@ -21,6 +21,21 @@
   color: var(--text-color);
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group input[type="text"], .input-group button {
+  box-sizing: border-box;
+  height: 40px;
+  border-radius: 10px;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+
 /* fade classNames used to handle the routing animation */
 .fade-enter {
   opacity: 0;
