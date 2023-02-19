@@ -1,7 +1,7 @@
 import React from "react";
 import SearchPage from "./SearchPage"
 import UrbanAPI from '../components/UrbanAPI';
-
+import UrbanCard from "../components/UrbanCard";
 
 const Home = () => {
 
@@ -9,6 +9,7 @@ const Home = () => {
     <div>
       <SearchPage />
       <UrbanAPI />
+      <UrbanCard />
     
 
     </div>
