@@ -8,6 +8,7 @@ import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
+import PronounciationCard from '../components/PronounciationCard/PronounciationCard';
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
@@ -150,6 +151,7 @@ function SearchPage() {
       <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
+      <PronounciationCard />
     </div>
   );
 }

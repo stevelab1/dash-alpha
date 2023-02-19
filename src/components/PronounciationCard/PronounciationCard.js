@@ -14,7 +14,7 @@ function RelatedWordsCard() {
     // Otherwise, display the synonyms, antonyms and rhyming words
     return (
       <Row className="mx-0 my-2">
-        <Card className="pronounciation-card col-12 col-lg-12 p-3 mx-auto border-0">
+        <Card className="pronounciation-card col-12 col-lg-12 p-3 mx-auto border-0 text-start">
           <Card.Body className="p-0 m-0">
           <div className="d-flex flex-column flex-md-row justify-content-evenly pb-3">
             <div className="syllables">
@@ -22,7 +22,7 @@ function RelatedWordsCard() {
               <p>{apiStatus.syllables.join(' - ')}</p>
             </div>
             <div className="sound">
-
+              <button>Play <i class="fas fa-volume-high"></i></button>
             </div>
           </div>
           </Card.Body>
