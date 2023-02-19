@@ -17,8 +17,8 @@ function PronounciationCard() {
   // if there is no api information display nothing
   if (Object.keys(apiStatus).length === 0) {
     return <div></div>;
-//   } else if (!(apiStatus.phonetics)) {
-//     return <div></div>;
+  } else if (!(apiStatus.phonetics)) {
+    return <div></div>;
   } else {
     // Otherwise, display the synonyms, antonyms and rhyming words
     return (
