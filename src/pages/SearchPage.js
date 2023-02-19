@@ -14,7 +14,7 @@ function SearchPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
   const [scrabbleScore, setScrabbleScore] = useState(0);
-console.log('test2');
+
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
       useContext(SearchContext);

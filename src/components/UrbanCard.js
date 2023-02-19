@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, Alert, Container } from "react-bootstrap";
-import { SearchContext } from "../context/SearchContext";
+// import { SearchContext } from "../context/SearchContext";
 import UrbanAPI from '../components/UrbanAPI';
 
 
@@ -38,7 +38,7 @@ if (searchError) {
                     <Card.Title>Urban-dictionary definition</Card.Title>
                     {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
                     <Card.Text>
-                        {`#urban`}
+                        
                     </Card.Text>
                     <Card.Link href="#">Read more</Card.Link>
 
