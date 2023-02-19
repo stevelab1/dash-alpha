@@ -26,6 +26,11 @@ function DictionaryAPI() {
         // remove when finished
         console.log(wordBreakdown);
         
+        // now get origin of word if it has it
+        if (response.data[0].origin) {
+            wordBreakdown.background = response.data[0].origin;
+        }
+        
     }).catch(function (error) {
         console.error(error);
     });
