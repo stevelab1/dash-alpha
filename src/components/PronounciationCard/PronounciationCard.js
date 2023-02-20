@@ -3,6 +3,8 @@ import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { Card, Row, Button, Alert } from "react-bootstrap";
 
+import './PronounciationCard.css';
+
 function PronunciationCard() {
   const { apiStatus } = useContext(SearchContext);
   const [errorMessage, setErrorMessage] = useState(null);
