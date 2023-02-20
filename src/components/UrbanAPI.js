@@ -1,9 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { SearchContext } from "../context/SearchContext";
 
+import { Card, Alert, Container } from "react-bootstrap";
+import React, { createContext, useContext } from 'react';
 
-
+// Create a new context
+//export const SearchContext = createContext({});
 
 
 function UrbanAPI() {
@@ -45,11 +48,25 @@ function UrbanAPI() {
     ]
     )
     return (
-        <div className="urban">
-            <h2>{urban.definition}</h2>
-            <h3>{urban.example}</h3>
-        </div>
-    )
+        <div>
+        <Card>
+        <Card.Body>
+            <Card.Title>Urban-dictionary definition</Card.Title>
+
+            <Card.Text>
+            {urban.definition}
+            </Card.Text>
+            <Card.Link href="https://www.urbandictionary.com/define.php?term=${searchInput}">Learn more</Card.Link>
+
+        </Card.Body>
+    </Card>
+    </div>
+)
+        // <div className="urban">
+        //     <h2>{urban.definition}</h2>
+        //     <h3>{urban.example}</h3>
+        // </div>
+    //)
 };
 export default UrbanAPI;
 
