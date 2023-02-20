@@ -4,6 +4,7 @@ import { SearchContext } from "../context/SearchContext";
 
 import { Card, Alert, Container } from "react-bootstrap";
 import React, { createContext, useContext } from 'react';
+import "../components/UrbanAPI.css";
 
 // Create a new context
 //export const SearchContext = createContext({});
@@ -49,7 +50,7 @@ function UrbanAPI() {
     )
     return (
         <div>
-            <Card>
+            <Card className="urbanAPI">
                 <Card.Body>
                     <Card.Title>Urban-dictionary definition</Card.Title>
 
