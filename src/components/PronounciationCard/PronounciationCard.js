@@ -39,20 +39,20 @@ function PronunciationCard() {
   return (
     <Row className="mx-0 my-2">
       <Card className="pronunciation-card col-12 col-lg-12 p-3 mx-auto border-0 text-center text-md-start">
-        <Card.Body className="p-0 m-0">
-          <div className="d-flex flex-column flex-md-row justify-content-center pb-3">
+        <Card.Body className="p-0 m-0 col-8">
+          <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly pb-3">
             <div className="syllables col-12 col-md-4 d-flex flex-column justify-content-center">
               <h3 className="m-2 p-0">Ready to pronounce it?</h3>
               <p className="syllable-breakdown m-2 p-0">
                 {apiStatus.syllables.join(" - ")}
               </p>
             </div>
-            <div className="sound col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
-              <Button onClick={handleClick} variant="outline-dark">
+            <div className="sound col-12 col-md-4 d-flex justify-content-center align-items-center">
+              <Button onClick={handleClick} variant="outline-dark" id="play-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="16"
+                  width="48"
+                  height="32"
                   fill="currentColor"
                   className="bi bi-play-btn"
                   viewBox="0 1 24 16"

@@ -2,11 +2,11 @@
     background-color: #f2f2f2;
   }
 
-.play-button {
+#play-button {
     height: 100px;
     background-color: #000000;
     color: #ffffff;
-    padding: 20px;
+    padding: 20px 40px;
     font-size: 2em;
 }
 
