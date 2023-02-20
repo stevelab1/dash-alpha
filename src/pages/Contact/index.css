@@ -1,0 +1,14 @@
+.form-background {
+    background-color: #333333;
+    padding: 60px;
+    margin-top: -100px; /* adjust this value to position the form correctly */
+    border-radius: 10px;
+  }
+  
+  .Pages {
+    background-image: url('../../components/Hero/library.png');
+    background-size: cover;
+    background-color: #3c3c3c; /* fallback color */
+    color: #f2f2f2;
+  }
+  
