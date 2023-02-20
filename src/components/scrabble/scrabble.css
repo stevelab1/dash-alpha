@@ -1,0 +1,104 @@
+  .scrabble-container {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  }
+  
+  .scrabble-tile {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    border: 2px solid #000000;
+    box-shadow: 2px 2px #888888;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 50px;
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 767px) {
+    .scrabble-tile {
+      width: 65px;
+      height: 65px;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .scrabble-tile {
+      width: 55px;
+      height: 55px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .scrabble-container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  
+  .scrabble-tile-letter {
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 767px) {
+    .scrabble-tile-letter {
+      font-size: 28px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .scrabble-tile-letter {
+      font-size: 24px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  
+  .scrabble-tile-score {
+    font-size: 16px;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+  }
+
+  @media (max-width: 767px) {
+    .scrabble-tile-score {
+      font-size: 14px;
+      position: absolute;
+      bottom: 3px;
+      right: 4px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .scrabble-tile-score {
+      font-size: 10px;
+      position: absolute;
+      bottom: 3px;
+      right: 4px;
+    }
+  }
+
+  
+  .text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
