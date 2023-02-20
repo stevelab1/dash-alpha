@@ -48,12 +48,7 @@ function ExamplesCard() {
                   </Card.Title>
                   <ul className="list-group">
                     {/* {generateList(apiStatus.examples)} */}
-                    {generateList([
-                      "This is an example sentence for testing.",
-                      "This is another example sentence.",
-                      "But these sentences are purely for testing.",
-                      "The line above this in the code is the real line when the api call has been added in",
-                    ])}
+                    {/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  uncomment this line back in once api request is set up */}
                   </ul>
                 </Card.Body>
               </Card>
