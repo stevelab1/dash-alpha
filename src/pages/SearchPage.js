@@ -155,13 +155,15 @@ function SearchPage() {
       <Hero>
         <SearchForm setSearchError={setSearchError} />
       </Hero>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-6">
-            <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
-          </div>
-          <div className="col-md-6">
-            <Picture word={searchedWord} />
+      <div className="shadow p-2 mb-4 bg-white rounded">
+        <div className="card-container container mt-5">
+          <div className="row">
+            <div className="col-md-6">
+              <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+            </div>
+            <div className="col-md-6">
+              <Picture word={searchedWord} />
+            </div>
           </div>
         </div>
       </div>
