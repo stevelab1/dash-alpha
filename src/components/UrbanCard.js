@@ -16,17 +16,17 @@ function UrbanCard({ searchError }) {
         );
     } else {
         return (
-            <Card>
-                <Card.Body>
-                    <Card.Title>Urban-dictionary definition</Card.Title>
+            // <Card>
+            //     <Card.Body>
+            //         <Card.Title>Urban-dictionary definition</Card.Title>
 
-                    <Card.Text>
-                        UrbanAPI.getElementbyClassName('urban')
-                    </Card.Text>
-                    <Card.Link href=" `https://www.urbandictionary.com/define.php?term=${searchInput}`">Learn more</Card.Link>
+            //         <Card.Text>
+            //             UrbanAPI.getElementbyClassName('urban')
+            //         </Card.Text>
+            //         <Card.Link href=" `https://www.urbandictionary.com/define.php?term=${searchInput}`">Learn more</Card.Link>
 
-                </Card.Body>
-            </Card>
+            //     </Card.Body>
+            // </Card>
         )
     }
 };
