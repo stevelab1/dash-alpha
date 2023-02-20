@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Spinner, Button } from "react-bootstrap";
 import WordCard from "../components/WordCard";
-import Scrabble from "../components/Scrabble";
+import Scrabble from "../components/scrabble/Scrabble";
 import { calculateScrabbleScore } from "../utils/scrabbleUtils";
 
 import { SearchContext } from "../context/SearchContext";
