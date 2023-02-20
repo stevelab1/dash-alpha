@@ -7,18 +7,16 @@ import { calculateScrabbleScore } from "../utils/scrabbleUtils";
 import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 import Hero from "../components/Hero/Hero";
-import RelatedWordsCard from '../components/RelatedWordsCard/RelatedWordsCard';
-import PronounciationCard from '../components/PronounciationCard/PronounciationCard';
+import RelatedWordsCard from "../components/RelatedWordsCard/RelatedWordsCard";
+import PronounciationCard from "../components/PronounciationCard/PronounciationCard";
 import Picture from "../components/Picture";
-import ExamplesBackgroundCard from '../components/ExamplesBackgroundCard/ExamplesBackgroundCard';
-
+import ExamplesBackgroundCard from "../components/ExamplesBackgroundCard/ExamplesBackgroundCard";
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
   const [scrabbleScore, setScrabbleScore] = useState(0);
-
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -64,6 +62,9 @@ function SearchPage() {
           }
         );
 
+        // Extract the phonetics data from the API response
+        const phonetics = response.data?.pronunciation?.all || "";
+
         // Set the apiStatus state variable with the response data
         setApiStatus({
           word: response.data.word,
@@ -73,6 +74,7 @@ function SearchPage() {
           synonyms: response.data.results[0].synonyms,
           antonyms: antonymsResponse.data.antonyms,
           rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
+          phonetics: phonetics,
           success: true,
           error: false,
         });
@@ -96,6 +98,7 @@ function SearchPage() {
           synonyms: [],
           antonyms: [],
           rhymes: [],
+          phonetics: null,
           success: false,
           error: true,
         });
