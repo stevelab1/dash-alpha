@@ -34,7 +34,7 @@ function App() {
                   classNames="fade"
                 >
                   <Switch location={location}>
-                    <Route exact path="/" component={Home} />
+                    <Route path="/" component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
                   </Switch>
