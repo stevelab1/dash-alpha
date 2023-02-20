@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import { SearchContext } from "../context/SearchContext";
 
 import { Card, Alert, Container } from "react-bootstrap";
@@ -24,7 +24,7 @@ function UrbanAPI() {
                 url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
 
                 params: {
-                    term: { searchInput }
+                    term: searchInput 
                 },
                 headers: {
                     'X-RapidAPI-Key': '662923c1d1msh2601dffd22e156dp13e20ejsn70d788d09664',
@@ -32,7 +32,7 @@ function UrbanAPI() {
                 }
             };
 
-            Axios.request(options).then(function (response) {
+            axios.request(options).then(function (response) {
                 console.log(response.data.list[0].definition);
                 console.log(response.data.list[0].example);
                 setUrban({
@@ -49,23 +49,24 @@ function UrbanAPI() {
     )
     return (
         <div>
-        <Card>
-        <Card.Body>
-            <Card.Title>Urban-dictionary definition</Card.Title>
+            <Card>
+                <Card.Body>
+                    <Card.Title>Urban-dictionary definition</Card.Title>
 
-            <Card.Text>
-            {urban.definition}
-            </Card.Text>
-            <Card.Link href="https://www.urbandictionary.com/define.php?term=${searchInput}">Learn more</Card.Link>
+                    <Card.Text>
+                        {urban.definition}
+                        {urban.example}
+                    </Card.Text>
+                    <Card.Link href="`https://www.urbandictionary.com/define.php?term=${searchInput}`">Learn more</Card.Link>
 
-        </Card.Body>
-    </Card>
-    </div>
-)
-        // <div className="urban">
-        //     <h2>{urban.definition}</h2>
-        //     <h3>{urban.example}</h3>
-        // </div>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+    // <div className="urban">
+    //     <h2>{urban.definition}</h2>
+    //     <h3>{urban.example}</h3>
+    // </div>
     //)
 };
 export default UrbanAPI;
