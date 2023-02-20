@@ -6,10 +6,12 @@
 
 
 
-    background-color:#e6e4f0;
+    background-color:#e8e6ef;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+};
 
-}
-
-/* .UrbanAPI-title {
-    size: ;
-} */
+/* .card-title {
+    text-decoration: underline;
+    
+}; */

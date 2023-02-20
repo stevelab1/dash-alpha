@@ -52,7 +52,7 @@ function UrbanAPI() {
         <div>
             <Card className="urbanAPI">
                 <Card.Body>
-                    <Card.Title>Urban-dictionary definition</Card.Title>
+                    <Card.Title >Urban-dictionary definition</Card.Title>
 
                     <Card.Text>
                         <p>{urban.definition}</p>
