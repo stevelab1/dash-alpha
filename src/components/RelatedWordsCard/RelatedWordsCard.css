@@ -1,4 +1,4 @@
-li {
+.related-words-card li {
   font-size: 20px;
 }
 
@@ -22,4 +22,16 @@ li {
 
 .related-words-card {
   background-color: #f2f2f2;
+  padding-bottom: 50px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767px) {
+  .related-words-card .card:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.related-words-card .card {
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }

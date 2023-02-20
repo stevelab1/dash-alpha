@@ -18,8 +18,9 @@ import { SearchProvider } from "./context/SearchContext";
 
 function App() {
   return (
-    <div className="App" 
-    // data-test="component-app"
+    <div
+      className="App"
+      // data-test="component-app"
     >
       {/* Wrap App with SearchProvider so context available to all components inside the Router: */}
       <SearchProvider>

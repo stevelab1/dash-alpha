@@ -39,7 +39,7 @@ function WordCard({ searchError }) {
           <Card.Text>
             <strong>Syllables:</strong> {apiStatus.syllables.join("-")}
           </Card.Text>
-          <Card.Text>
+          {/* <Card.Text>
             <strong>Synonyms:</strong> {apiStatus.synonyms.join(", ")}
           </Card.Text>
           <Card.Text>
@@ -47,7 +47,7 @@ function WordCard({ searchError }) {
           </Card.Text>
           <Card.Text>
             <strong>Rhyming words:</strong> {apiStatus.rhymes.join("-")}
-          </Card.Text>
+          </Card.Text> */}
         </Card.Body>
       </Card>
     );

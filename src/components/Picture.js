@@ -11,7 +11,7 @@ const Picture = ({ word }) => {
         `https://api.pexels.com/v1/search?query=${word}&per_page=1`,
         {
           headers: {
-            Authorization: "YOUR_PEXELS_API_KEY"
+            Authorization: "FKpX18SXdc3NKp8ejxilT1y7HkAAlRwH4HVqVM1uyOffr9hxInCSpMls"
           }
         }
       );
@@ -29,15 +29,3 @@ const Picture = ({ word }) => {
 };
 
 export default Picture;
-
-
-//   return (
-//     <Card>
-//     <Card.Body>
-//       {imageUrl && <img src={imageUrl} alt="pexels" className="img-fluid" />}
-//     </Card.Body>
-//   </Card>
-//   );
-// };
-
-// export default Picture;

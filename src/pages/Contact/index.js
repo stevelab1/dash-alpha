@@ -1,6 +1,9 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { ValidationError, useForm } from "@formspree/react";
+import "../../components/Hero/library.png";
+
+import "./index.css";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("xpzepwgn");
@@ -8,26 +11,28 @@ const Contact = () => {
     return <p className="Pages">Thanks for your message!</p>;
   }
   return (
-    <div className="Pages" 
-    // data-test="contact-page"
+    <div
+      className="Pages"
+      // data-test="contact-page"
     >
-      <p>Find us on: </p>
-      <p>
-        <a
-          href="https://github.com/stevelab1/investig8"
-          target="_blank"
-          rel="noopener noreferrer"
-          alt="link to investig8 github repo"
-          className="Link"
-        >
-          GitHub
-        </a>
-      </p>
-      <p></p>
-      <p> ... or contact us via email using the form below:</p>
+      
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="form-background">
+          <p>Find us on: </p>
+          <p>
+            <a
+              href="https://github.com/stevelab1/investig8"
+              target="_blank"
+              rel="noopener noreferrer"
+              alt="link to investig8 github repo"
+              className="Link"
+            >
+              GitHub
+            </a>
+          </p>
+          <p></p>
+          <p> ... or contact us via email using the form below:</p>
           <Form.Group controlId="formName">
             <p>
               <Form.Label>Name</Form.Label>
@@ -63,7 +68,7 @@ const Contact = () => {
           </Form.Group>
           <p>
             <Button
-              variant="outline-dark"
+              variant="outline-light"
               type="submit"
               disabled={state.submitting}
             >
