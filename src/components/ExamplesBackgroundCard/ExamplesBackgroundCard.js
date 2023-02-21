@@ -4,15 +4,15 @@ import { SearchContext } from "../../context/SearchContext";
 
 import "./ExamplesBackgroundCard.css";
 
-function generateList(words) {
-  return words.map((item) => {
-    return (
-      <li className="list-group-item border-0 text-start" key={item}>
-        {item}
-      </li>
-    );
-  });
-}
+// function generateList(words) {
+//   return words.map((item) => {
+//     return (
+//       <li className="list-group-item border-0 text-start" key={item}>
+//         {item}
+//       </li>
+//     );
+//   });
+// }
 
 function ExamplesCard() {
   const { apiStatus } = useContext(SearchContext);
@@ -47,7 +47,7 @@ function ExamplesCard() {
                     Use {apiStatus.word} in a sentence
                   </Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.examples)}
+                    {/* {generateList(apiStatus.examples)} */}
                   </ul>
                 </Card.Body>
               </Card>
