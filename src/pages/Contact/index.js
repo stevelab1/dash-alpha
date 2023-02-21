@@ -18,6 +18,7 @@ const Contact = () => {
 
   return (
     <div className="Pages">
+      <img src="https://images.pexels.com/photos/9305719/pexels-photo-9305719.jpeg" />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={handleSubmit} className="form-background">
           <p>Find us on: </p>
