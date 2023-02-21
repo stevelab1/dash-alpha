@@ -10,7 +10,7 @@ const About = () => {
       <h5>
         Investig8 word search is a quick, convenient, free, educational, and entertaining one-stop info page explaining the in's and out of every word in the English language
       </h5>
-      <p>
+      {/* <p>
 
         <div class="p1">Just looking for a definition? It'll be the first line you get after your search,</div>
         
@@ -19,7 +19,7 @@ const About = () => {
         <div class="p3">Want to see how a word can be broken down into syllables or what rhymes with it? We have you covered 😉</div>
 
   < div class="p4" > Or maybe you're just looking for some synonyms or antonyms for your writing? We've got whole lists of them!</div >
-        </p >
+        </p > */}
   <p>
     Whether you are fascinated by the English Language and would love to know all about spoken and written English all around the world, or you think the short complicated definitions in a dictionary aren't good enough, the Investig8 word search is just for you!
   </p>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { SearchContext } from "../context/SearchContext";
 
@@ -6,24 +6,25 @@ import { Card } from "react-bootstrap";
 import React, { useContext } from 'react';
 import "../components/UrbanAPI.css";
 
+
 // Create a new context
 //export const SearchContext = createContext({});
-
-
 function UrbanAPI() {
-    const { searchInput } =
+    const {searchInput} =
         useContext(SearchContext);
 
     const [urban, setUrban] = useState({
         definition: '',
         example: '',
-    })
-    // useEffect(
-        //() => {
+    }); 
+    if (!apiStatus?.phonetics) {
+        return null;
+    }
+    useEffect(
+        () => {
             const options = {
                 method: 'GET',
                 url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
-
                 params: {
                     term: searchInput
                 },
@@ -32,41 +33,39 @@ function UrbanAPI() {
                     'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com',
                 }
             };
-
             axios.request(options).then(function (response) {
                 console.log(response.data.list[0].definition);
                 console.log(response.data.list[0].example);
-                setUrban({
-                    definition: response.data.list[0].definition,
-                    example: response.data.list[0].example,
-                })
-
             })
-            // .catch(function (error) {
-            //     console.error(error);
-            // });
-        //}, 
-    //     [
-    //     searchInput
-    // ]
- //console.log({urban,definition})
-//             def = def.replace(/[]/g, '');
-//             console.log(def);
-//             const eg = {urban.example}
 
-    //)
+            setUrban({
+                definition: response.data.list[0].definition,
+                example: response.data.list[0].example,
+            })
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+}
+[
+    searchInput
+]
+// console.log(urban.definition)
+// def = def.replace(/[]/g, '');
+// console.log(def);
+// const eg : {urban.example}
+
+//)
+for ($(searchInput).length > 0) {
     return (
         <div>
             <Card className="urbanAPI">
                 <Card.Body>
-                    <Card.Title >Urban-dictionary definition</Card.Title>
+                    <Card.Title>Urban-dictionary definition</Card.Title>
                     <Card.Text>
-                        <p>{urban.definition}</p>
-                        Example: {urban.example}
+                        {/* {response.data.list[0].definition} */}
                     </Card.Text>
-                    {/* link not working because of some syntax error, so I put "example" instead of {searchInput}*/}
-                    <Card.Link href={`https://www.urbandictionary.com/define.php?term=${searchInput}`}>Learn more</Card.Link>
-
+                    {/* <Card.Link href={`https://www.urbandictionary.com/define.php?term=${searchInput}`}>Learn more</Card.Link> */}
                 </Card.Body>
             </Card>
         </div>
@@ -77,5 +76,11 @@ function UrbanAPI() {
     // </div>
     //)
 };
-export default UrbanAPI;
+// }else {
+//     return null;
+// }
 
+
+
+
+export default UrbanAPI;

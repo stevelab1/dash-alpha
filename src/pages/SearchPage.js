@@ -74,6 +74,7 @@ function SearchPage() {
           synonyms: response.data.results[0].synonyms,
           antonyms: antonymsResponse.data.antonyms,
           rhymes: rhymesResponse.data.rhymes.all.slice(0, 10),
+          
           phonetics: phonetics,
           success: true,
           error: false,
