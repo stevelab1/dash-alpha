@@ -6,9 +6,10 @@ import "./RelatedWordsCard.css";
 
 function generateList(words, message, word) {
   console.log(words);
-  if (words.length === 0) {
+  if (!words || words.length === 0) {
     words = undefined;
   }
+  console.log(words);
   if (!words) {
     return (
       <li className="list-group-item border-0" key="error">
@@ -24,7 +25,6 @@ function generateList(words, message, word) {
       );
     });
   }
-  
 }
 
 function RelatedWordsCard() {
