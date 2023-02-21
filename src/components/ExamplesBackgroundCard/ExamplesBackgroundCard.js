@@ -47,7 +47,7 @@ function ExamplesCard() {
                     Use {apiStatus.word} in a sentence
                   </Card.Title>
                   <ul className="list-group">
-                    {/* {generateList(apiStatus.examples)} */}
+                    {generateList(apiStatus.examples)}
                   </ul>
                 </Card.Body>
               </Card>
