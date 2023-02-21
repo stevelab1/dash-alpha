@@ -1,6 +1,5 @@
 .Pages {
-  background-image: url('../../components/Hero/library.png');
+  background-image: url('../../../src/components/Hero/library.png');
   background-size: cover;
   background-color: #3c3c3c; /* fallback color */
-  color: #f2f2f2;
 }

@@ -10,7 +10,7 @@ const Contact = () => {
   if (state.succeeded) {
     return (
       <div className="Pages">
-        <p className="bg-dark p-4 rounded">Thanks for your message!</p>
+        <p className="bg-dark text-light p-4 rounded">Thanks for your message!</p>
       </div>
     );
   }
@@ -20,7 +20,7 @@ const Contact = () => {
       // data-test="contact-page"
     >
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Form onSubmit={handleSubmit} className="bg-dark p-5 rounded">
+        <Form onSubmit={handleSubmit} className="bg-dark text-light p-5 rounded">
           <p>Find us on: </p>
           <p>
             <a
