@@ -11,12 +11,13 @@ import RelatedWordsCard from "../components/RelatedWordsCard/RelatedWordsCard";
 import PronounciationCard from "../components/PronounciationCard/PronounciationCard";
 import Picture from "../components/Picture";
 import ExamplesBackgroundCard from "../components/ExamplesBackgroundCard/ExamplesBackgroundCard";
+import "../pages/searchPage.css";
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
-  const [scrabbleScore, setScrabbleScore] = useState(0);
+  const [setScrabbleScore] = useState(0);
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -155,11 +156,11 @@ function SearchPage() {
       <Hero>
         <SearchForm setSearchError={setSearchError} />
       </Hero>
-      <div className="shadow p-2 mb-4 bg-white rounded">
+      <div className="shadow p-2 mb-2 bg-white">
         <div className="card-container container mt-5">
           <div className="row">
             <div className="col-md-6">
-              <WordCard searchError={searchError} scrabbleScore={scrabbleScore} />
+              <WordCard searchError={searchError}/>
             </div>
             <div className="col-md-6">
               <Picture word={searchedWord} />
@@ -167,7 +168,7 @@ function SearchPage() {
           </div>
         </div>
       </div>
-      {searchedWord && <Scrabble word={searchedWord} />}
+      <Scrabble word={searchedWord} />
       <RelatedWordsCard />
       <PronounciationCard />
       <ExamplesBackgroundCard />
