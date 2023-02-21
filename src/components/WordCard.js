@@ -29,7 +29,7 @@ function WordCard({ searchError }) {
   } else {
     // Otherwise, display the word breakdown
     return (
-      <Card>
+      <Card style={{ border: "none" }}>
         <Card.Body>
           <Card.Title>{apiStatus.word}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">

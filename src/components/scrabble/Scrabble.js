@@ -52,27 +52,6 @@ const Scrabble = ({ word }) => {
     score: letterValues[letter.toUpperCase()] || 0,
   }));
 
-  // return (
-  //   <div className="row">
-  //     <div className="scrabble-container">
-  //       <h3>Your Scrabble Score is: {score}</h3>
-  //       <div className="row">
-  //         {letterScores.map((letterScore, index) => (
-  //           <div className="col-md-2" key={index}>
-  //             <Card className="scrabble-tile">
-  //               <div className="text-center">
-  //                 <div className="scrabble-tile-letter">{letterScore.letter}</div>
-  //                 </div>
-  //                 <div className="text-b-right">
-  //                 <div className="scrabble-tile-score">{letterScore.score}</div>
-  //               </div>
-  //             </Card>
-  //           </div>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
   return (
     <div className="row">
       <div className="col-md-12">
@@ -80,7 +59,7 @@ const Scrabble = ({ word }) => {
           <h3>Your Scrabble Score is: {score}</h3>
           <div className="row">
             {letterScores.map((letterScore, index) => (
-              <div className="col-4 col-md-3 col-lg-2" key={index}>
+              <div className="col-3 col-md-3 col-lg-2" key={index}>
                 <Card className="scrabble-tile">
                   <div className="text-center">
                     <div className="scrabble-tile-letter">{letterScore.letter}</div>
@@ -94,9 +73,6 @@ const Scrabble = ({ word }) => {
       </div>
     </div>
 );
-
-
-
 };
 
 export default Scrabble;
