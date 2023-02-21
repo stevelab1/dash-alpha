@@ -1,15 +1,18 @@
-.pronounciation-card {
+#pronounciation-card {
     background-color: #f2f2f2;
+    background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.8),  rgba(242, 242, 242, 0.9)), url('Pronounce.jpg');
+    background-size: cover;
+    background-position: center;
   }
 
-.play-button {
+#play-button {
     height: 100px;
     background-color: #000000;
     color: #ffffff;
-    padding: 20px;
+    padding: 20px 40px;
     font-size: 2em;
 }
 
-.syllables {
-    font-size: 28px;
+p.syllable-breakdown {
+    font-size: 24px;
 }
