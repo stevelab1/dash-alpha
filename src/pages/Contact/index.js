@@ -8,17 +8,19 @@ import "./index.css";
 const Contact = () => {
   const [state, handleSubmit] = useForm("xpzepwgn");
   if (state.succeeded) {
-    return <p className="Pages">Thanks for your message!</p>;
+    return (
+      <div className="Pages">
+        <p className="bg-dark p-4 rounded">Thanks for your message!</p>
+      </div>
+    );
   }
   return (
     <div
       className="Pages"
       // data-test="contact-page"
     >
-      
-
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Form onSubmit={handleSubmit} className="form-background">
+        <Form onSubmit={handleSubmit} className="bg-dark p-5 rounded">
           <p>Find us on: </p>
           <p>
             <a
