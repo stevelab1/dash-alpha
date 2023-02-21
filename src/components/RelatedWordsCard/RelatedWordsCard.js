@@ -4,14 +4,27 @@ import { SearchContext } from "../../context/SearchContext";
 
 import "./RelatedWordsCard.css";
 
-function generateList(words) {
-  return words.map((item) => {
+function generateList(words, message, word) {
+  console.log(words);
+  if (words.length === 0) {
+    words = undefined;
+  }
+  if (!words) {
     return (
-      <li className="list-group-item border-0" key={item}>
-        {item}
+      <li className="list-group-item border-0" key="error">
+        {`There are no ${message} ${word}`}
       </li>
-    );
-  });
+    )
+  } else {
+    return words.map((item) => {
+      return (
+        <li className="list-group-item border-0" key={item}>
+          {item}
+        </li>
+      );
+    });
+  }
+  
 }
 
 function RelatedWordsCard() {
@@ -36,7 +49,7 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Rhyming Words</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.rhymes)}
+                    {generateList(apiStatus.rhymes, 'words that rhyme with', apiStatus.word)}
                   </ul>
                 </Card.Body>
               </Card>
@@ -46,7 +59,7 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Synonyms</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.synonyms)}
+                    {generateList(apiStatus.synonyms, 'synonyms for', apiStatus.word)}
                   </ul>
                 </Card.Body>
               </Card>
@@ -56,7 +69,7 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Antonyms</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.antonyms)}
+                    {generateList(apiStatus.antonyms, 'antonyms for', apiStatus.word)}
                   </ul>
                 </Card.Body>
               </Card>
