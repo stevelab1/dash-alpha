@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { ValidationError, useForm } from "@formspree/react";
-import "../../components/Hero/library.png";
+import "../../../src/components/Hero/library.png";
 
 import "./index.css";
 
