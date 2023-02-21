@@ -8,7 +8,7 @@ const Contact = () => {
 
   if (state.succeeded) {
     return (
-      <div className="Contact">
+      <div className="Pages">
         <p className="form-background">
           Thanks for your message!
         </p>
@@ -17,7 +17,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="Contact">
+    <div className="Pages">
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={handleSubmit} className="form-background">
           <p>Find us on: </p>
