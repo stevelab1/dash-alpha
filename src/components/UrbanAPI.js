@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SearchContext } from "../context/SearchContext";
 
-import { Card, Alert, Container } from "react-bootstrap";
-import React, { createContext, useContext } from 'react';
+import { Card } from "react-bootstrap";
+import React, { useContext } from 'react';
 import "../components/UrbanAPI.css";
 
 // Create a new context
@@ -11,21 +11,21 @@ import "../components/UrbanAPI.css";
 
 
 function UrbanAPI() {
-    const { searchInput, setSearchInput, setApiStatus } =
+    const { searchInput } =
         useContext(SearchContext);
 
     const [urban, setUrban] = useState({
         definition: '',
         example: '',
     })
-    useEffect(
-        () => {
+    // useEffect(
+        //() => {
             const options = {
                 method: 'GET',
                 url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
 
                 params: {
-                    term: searchInput 
+                    term: searchInput
                 },
                 headers: {
                     'X-RapidAPI-Key': '662923c1d1msh2601dffd22e156dp13e20ejsn70d788d09664',
@@ -41,26 +41,31 @@ function UrbanAPI() {
                     example: response.data.list[0].example,
                 })
 
-            }).catch(function (error) {
-                console.error(error);
-            });
-        }, [
-        searchInput
-    ]
-    )
+            })
+            // .catch(function (error) {
+            //     console.error(error);
+            // });
+        //}, 
+    //     [
+    //     searchInput
+    // ]
+ //console.log({urban,definition})
+//             def = def.replace(/[]/g, '');
+//             console.log(def);
+//             const eg = {urban.example}
+
+    //)
     return (
         <div>
             <Card className="urbanAPI">
                 <Card.Body>
                     <Card.Title >Urban-dictionary definition</Card.Title>
-
                     <Card.Text>
                         <p>{urban.definition}</p>
-                        <br></br>
                         Example: {urban.example}
                     </Card.Text>
                     {/* link not working because of some syntax error, so I put "example" instead of {searchInput}*/}
-                    <Card.Link href='https://www.urbandictionary.com/define.php?term=example'>Learn more</Card.Link>
+                    <Card.Link href={`https://www.urbandictionary.com/define.php?term=${searchInput}`}>Learn more</Card.Link>
 
                 </Card.Body>
             </Card>

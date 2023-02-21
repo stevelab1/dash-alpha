@@ -3,7 +3,7 @@ import { Spinner, Button } from "react-bootstrap";
 import WordCard from "../components/WordCard";
 import Scrabble from "../components/scrabble/Scrabble";
 import { calculateScrabbleScore } from "../utils/scrabbleUtils";
-
+import UrbanAPI from '../components/UrbanAPI';
 import { SearchContext } from "../context/SearchContext";
 import axios from "axios";
 import Hero from "../components/Hero/Hero";
@@ -169,6 +169,7 @@ function SearchPage() {
       </div>
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
+      <UrbanAPI />
       <PronounciationCard />
       <ExamplesBackgroundCard />
     </div>
