@@ -1,22 +1,23 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { ValidationError, useForm } from "@formspree/react";
-import "../../components/Hero/library.png";
-
 import "./index.css";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("xpzepwgn");
-  if (state.succeeded) {
-    return <p className="Pages">Thanks for your message!</p>;
-  }
-  return (
-    <div
-      className="Pages"
-      // data-test="contact-page"
-    >
-      
 
+  if (state.succeeded) {
+    return (
+      <div className="Contact">
+        <p className="form-background">
+          Thanks for your message!
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="Contact">
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={handleSubmit} className="form-background">
           <p>Find us on: </p>
@@ -31,8 +32,7 @@ const Contact = () => {
               GitHub
             </a>
           </p>
-          <p></p>
-          <p> ... or contact us via email using the form below:</p>
+          <p>... or contact us via email using the form below:</p>
           <Form.Group controlId="formName">
             <p>
               <Form.Label>Name</Form.Label>
