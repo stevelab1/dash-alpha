@@ -1,5 +1,10 @@
-.Pages {
-  background-image: url('../../../src/components/Hero/library.png');
+.Contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./image.png');
   background-size: cover;
   background-color: #3c3c3c; /* fallback color */
 }

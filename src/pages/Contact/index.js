@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { ValidationError, useForm } from "@formspree/react";
-import "../../../src/components/Hero/library.png";
+import "./image.png";
 
 import "./index.css";
 
@@ -9,14 +9,14 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("xpzepwgn");
   if (state.succeeded) {
     return (
-      <div className="Pages">
+      <div className="Contact">
         <p className="bg-dark text-light p-4 rounded">Thanks for your message!</p>
       </div>
     );
   }
   return (
     <div
-      className="Pages"
+      className="Contact"
       // data-test="contact-page"
     >
       <div style={{ display: "flex", justifyContent: "center" }}>
