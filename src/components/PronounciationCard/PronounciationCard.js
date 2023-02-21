@@ -38,7 +38,7 @@ function PronunciationCard() {
 
   return (
     <Row className="mx-0 my-2">
-      <Card className="pronunciation-card col-12 col-lg-12 p-3 mx-auto border-0 text-center text-md-start">
+      <Card id="pronounciation-card" className="col-12 col-lg-12 p-3 mx-auto border-0 text-center text-md-start">
         <Card.Body className="p-0 m-0 col-8">
           <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly pb-3">
             <div className="syllables col-12 col-md-4 d-flex flex-column justify-content-center">
