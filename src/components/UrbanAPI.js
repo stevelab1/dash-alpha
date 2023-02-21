@@ -2,8 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SearchContext } from "../context/SearchContext";
 
-import { Card, Alert, Container } from "react-bootstrap";
-import React, { createContext, useContext } from 'react';
+import { Card, 
+    // Alert, Container
+ } from "react-bootstrap";
+import React, { 
+    // createContext, 
+    useContext } from 'react';
 import "../components/UrbanAPI.css";
 
 // Create a new context
@@ -11,7 +15,9 @@ import "../components/UrbanAPI.css";
 
 
 function UrbanAPI() {
-    const { searchInput, setSearchInput, setApiStatus } =
+    const { searchInput, 
+        // setSearchInput, setApiStatus
+     } =
         useContext(SearchContext);
 
     const [urban, setUrban] = useState({
