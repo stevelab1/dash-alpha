@@ -3,7 +3,7 @@ import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { Card, Row, Button, Alert } from "react-bootstrap";
 
-import './PronounciationCard.css';
+import "./PronounciationCard.css";
 
 function PronunciationCard() {
   const { apiStatus } = useContext(SearchContext);
@@ -34,11 +34,13 @@ function PronunciationCard() {
       setErrorMessage("Unable to load pronunciation. Try another word.");
     }
   };
-  
 
   return (
     <Row className="mx-0 my-2">
-      <Card id="pronounciation-card" className="col-12 col-lg-12 p-3 mx-auto border-0 text-center text-md-start">
+      <Card
+        id="pronounciation-card"
+        className="col-12 col-lg-12 p-3 mx-auto border-0 text-center text-md-start"
+      >
         <Card.Body className="p-0 m-0 col-8">
           <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly pb-3">
             <div className="syllables col-12 col-md-4 d-flex flex-column justify-content-center">
@@ -48,7 +50,11 @@ function PronunciationCard() {
               </p>
             </div>
             <div className="sound col-12 col-md-4 d-flex justify-content-center align-items-center">
-              <Button onClick={handleClick} variant="outline-dark" id="play-button">
+              <Button
+                onClick={handleClick}
+                variant="outline-dark"
+                id="play-button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
