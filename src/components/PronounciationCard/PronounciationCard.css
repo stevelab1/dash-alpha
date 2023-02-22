@@ -1,6 +1,6 @@
 #pronounciation-card {
     background-color: #f2f2f2;
-    background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.8),  rgba(242, 242, 242, 0.9)), url('Pronounce.jpg');
+    background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.6),  rgba(242, 242, 242, 0.7)), url('Pronounce.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -39,4 +39,8 @@
 
 p.syllable-breakdown {
     font-size: 24px;
+}
+
+.pronounce-title {
+    text-shadow: 2px 2px #c0c0c0;
 }
