@@ -55,8 +55,8 @@ const Scrabble = ({ word }) => {
   return (
     <div className="row">
       <div className="col-md-12">
-        <div className="scrabble-container">
-          <h3>Your Scrabble Score is: {score}</h3>
+        <div className="text-center scrabble-container">
+          <h2>Your Scrabble Score is: {score}</h2>
           <div className="row">
             {letterScores.map((letterScore, index) => (
               <div className="col-3 col-md-3 col-lg-2" key={index}>
