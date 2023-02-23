@@ -25,6 +25,20 @@ function SearchPage() {
 
     const handleSearch = async (event) => {
       event.preventDefault();
+
+      setApiStatus({
+          word: "",
+          definition: "",
+          partOfSpeech: "",
+          syllables: [],
+          synonyms: [],
+          antonyms: [],
+          rhymes: [],
+          phonetics: null,
+          success: false,
+          error: true,
+        });
+
       setIsLoading(true);
       try {
         // Make an API call to get the word breakdown
