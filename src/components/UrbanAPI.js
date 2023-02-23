@@ -48,7 +48,7 @@ function UrbanAPI() {
                 })
 
             }).catch(function (error) {
-                console.error(error);
+                // console.error(error);
             });
         }, [
         searchInput
@@ -65,8 +65,6 @@ function UrbanAPI() {
                         <br></br>
                         Example: {urban.example}
                     </Card.Text>
-                    {/* link not working because of some syntax error, so I put "example" instead of {searchInput}*/}
-                    <Card.Link href='https://www.urbandictionary.com/define.php?term=example'>Learn more</Card.Link>
 
                 </Card.Body>
             </Card>
