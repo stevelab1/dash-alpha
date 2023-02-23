@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { SearchContext } from "../context/SearchContext";
+import "../components/wordcard.css"
 
 function WordCard({ searchError }) {
   const { apiStatus } = useContext(SearchContext);
@@ -19,31 +20,22 @@ function WordCard({ searchError }) {
     // If the API call was not successful, display an error message in a red alert
     return (
       <Alert variant="danger" className="mt-3">
-        No definition found
+        No results for your search. Please try another word.
       </Alert>
     );
   } else {
     // Otherwise, display the word breakdown
     return (
       <Card style={{ border: "none" }}>
-        <Card.Body>
-          <Card.Title>{apiStatus.word}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
+        <Card.Body className="bodycard">
+          <Card.Title className="bodytitle">{apiStatus.word}</Card.Title>
+          <Card.Subtitle className="bodysubtitle mb-2 text-muted">
             {apiStatus.partOfSpeech}
           </Card.Subtitle>
-          <Card.Text>{apiStatus.definition}</Card.Text>
-          <Card.Text>
+          <Card.Text className="bodytext">
             <strong>Syllables:</strong> {apiStatus.syllables.join("-")}
           </Card.Text>
-          {/* <Card.Text>
-            <strong>Synonyms:</strong> {apiStatus.synonyms.join(", ")}
-          </Card.Text>
-          <Card.Text>
-            <strong>Antonyms:</strong> {apiStatus.antonyms.join(", ")}
-          </Card.Text>
-          <Card.Text>
-            <strong>Rhyming words:</strong> {apiStatus.rhymes.join("-")}
-          </Card.Text> */}
+          <Card.Text>{apiStatus.definition}</Card.Text>
         </Card.Body>
       </Card>
     );
