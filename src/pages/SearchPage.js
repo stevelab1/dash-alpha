@@ -10,7 +10,6 @@ import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from "../components/RelatedWordsCard/RelatedWordsCard";
 import PronounciationCard from "../components/PronounciationCard/PronounciationCard";
 import Picture from "../components/Picture";
-import ExamplesBackgroundCard from "../components/ExamplesBackgroundCard/ExamplesBackgroundCard";
 import "../pages/searchPage.css";
 
 function SearchPage() {
@@ -185,7 +184,7 @@ function SearchPage() {
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
       <PronounciationCard />
-      <ExamplesBackgroundCard />
+      {/* <ExamplesBackgroundCard /> */}
     </div>
   );
 }

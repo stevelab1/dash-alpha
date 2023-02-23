@@ -14,16 +14,12 @@ function WordCard({ searchError }) {
     );
   } else if (Object.keys(apiStatus).length === 0) {
     // If there is no data yet, display a message to the user in a blue alert
-    return (
-      <Alert variant="primary" className="mt-3">
-        Please enter a search term above.
-      </Alert>
-    );
+    return null;
   } else if (apiStatus.success === false) {
     // If the API call was not successful, display an error message in a red alert
     return (
       <Alert variant="danger" className="mt-3">
-        No results for your search. Please try another word.
+        No definition found
       </Alert>
     );
   } else {
