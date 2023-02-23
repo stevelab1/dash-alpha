@@ -26,15 +26,15 @@ function UrbanAPI() {
                     'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com',
                 }}
             axios.request(options).then(function (response) {
-                console.log(response.data.list[0].definition);
-                console.log(response.data.list[0].example);
+          
                 setUrban({
                     definition: response.data.list[0].definition,
                     example: response.data.list[0].example,
                 })
-            }            ).catch(function (error) {
-                console.error(error);
-            })
+            }            )
+            // .catch(function (error) {
+            //     console.error(error);
+            // })
         })
     return (
         <div>
