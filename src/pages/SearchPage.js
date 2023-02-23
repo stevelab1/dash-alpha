@@ -89,7 +89,7 @@ function SearchPage() {
       } catch (error) {
         // If there is an error, still set the searched word to the search input, and calculate the Scrabble score for it
         setSearchedWord(searchInput);
-        setScrabbleScore(calculateScrabbleScore(searchInput));
+        // setScrabbleScore(calculateScrabbleScore(searchInput));
 
         // Set the apiStatus state variable to indicate the error
         setApiStatus({

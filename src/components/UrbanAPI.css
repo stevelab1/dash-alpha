@@ -6,11 +6,16 @@
 
 
 
-    background-color:#e8e6ef;
+    background-color:#dfdceb;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 };
 
+
+.title{
+    border: 5px solid green;
+    text-decoration: underline;
+}
 /* .card-title {
     text-decoration: underline;
     
