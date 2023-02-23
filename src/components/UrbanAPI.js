@@ -40,8 +40,8 @@ function UrbanAPI() {
             };
 
             axios.request(options).then(function (response) {
-                console.log(response.data.list[0].definition);
-                console.log(response.data.list[0].example);
+                // console.log(response.data.list[0].definition);
+                // console.log(response.data.list[0].example);
                 setUrban({
                     definition: response.data.list[0].definition,
                     example: response.data.list[0].example,

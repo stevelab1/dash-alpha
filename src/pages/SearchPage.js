@@ -10,14 +10,13 @@ import Hero from "../components/Hero/Hero";
 import RelatedWordsCard from "../components/RelatedWordsCard/RelatedWordsCard";
 import PronounciationCard from "../components/PronounciationCard/PronounciationCard";
 import Picture from "../components/Picture";
-
 import "../pages/searchPage.css";
 
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchedWord, setSearchedWord] = useState("");
-  const [scrabbleScore, setScrabbleScore] = useState(0);
+  const [setScrabbleScore] = useState(0);
 
   function SearchForm() {
     const { searchInput, setSearchInput, setApiStatus } =
@@ -27,17 +26,17 @@ function SearchPage() {
       event.preventDefault();
 
       setApiStatus({
-        word: "",
-        definition: "",
-        partOfSpeech: "",
-        syllables: [],
-        synonyms: [],
-        antonyms: [],
-        rhymes: [],
-        phonetics: null,
-        success: false,
-        error: true,
-      });
+          word: "",
+          definition: "",
+          partOfSpeech: "",
+          syllables: [],
+          synonyms: [],
+          antonyms: [],
+          rhymes: [],
+          phonetics: null,
+          success: false,
+          error: true,
+        });
 
       setIsLoading(true);
       try {
@@ -174,7 +173,7 @@ function SearchPage() {
         <div className="card-container container my-5">
           <div className="row">
             <div className="col-md-6">
-              <WordCard searchError={searchError} />
+              <WordCard searchError={searchError}/>
             </div>
             <div className="col-md-6">
               <Picture word={searchedWord} />
@@ -185,6 +184,7 @@ function SearchPage() {
       {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
       <PronounciationCard />
+      {/* <ExamplesBackgroundCard /> */}
     </div>
   );
 }
