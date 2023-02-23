@@ -19,7 +19,7 @@ function WordCard({ searchError }) {
     // If the API call was not successful, display an error message in a red alert
     return (
       <Alert variant="danger" className="mt-3">
-        No results for your search. Please try another word.
+        No definition found
       </Alert>
     );
   } else {
