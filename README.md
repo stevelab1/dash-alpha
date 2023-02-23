@@ -2,8 +2,7 @@
 
 ## Description
 
-Look up words. For learners, travellers, and logophiles.
-
+Look up words. For learners, travellers, and wordsmiths.
 
 ## Deployment
 
@@ -11,7 +10,7 @@ https://investig8.netlify.app
 
 ## Screenshot
 
-<!-- ![Screenshot of investig8](src/images/screenshot.png) -->
+![Screenshot of investig8](src/images/screenshot.png)
 
 ## User stories
 
@@ -39,6 +38,17 @@ Ali is tutoring his cousin in English at school. She recently moved to the UK fr
 ### Suggesting features, improvements, bug fixes
 
 https://github.com/stevelab1/investig8/issues
+
+## Technologies include:
+- React
+- React Router 
+- Context API
+- GitHub Actions
+- React-Bootstrap
+- Node
+- Axios
+- Words
+- Formspree
 
 ## Credits
 
