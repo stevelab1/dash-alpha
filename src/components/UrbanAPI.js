@@ -63,7 +63,7 @@ function UrbanAPI() {
                         Example: {urban.example}
                     </Card.Text>
                     {/* link not working because of some syntax error, so I put "example" instead of {searchInput}*/}
-                    <Card.Link href='https://www.urbandictionary.com/define.php?term=example'>Learn more</Card.Link>
+                    <Card.Link href={`https://www.urbandictionary.com/define.php?term=${searchInput}`}>Learn more</Card.Link>
 
                 </Card.Body>
             </Card>
