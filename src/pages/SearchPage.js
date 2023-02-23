@@ -158,7 +158,7 @@ function SearchPage() {
         <SearchForm setSearchError={setSearchError} />
       </Hero>
       <div className="shadow p-2 mb-2 bg-white">
-        <div className="card-container container mt-5">
+        <div className="card-container container my-5">
           <div className="row">
             <div className="col-md-6">
               <WordCard searchError={searchError}/>
@@ -169,7 +169,7 @@ function SearchPage() {
           </div>
         </div>
       </div>
-      <Scrabble word={searchedWord} />
+      {searchedWord && <Scrabble word={searchedWord} />}
       <RelatedWordsCard />
       <UrbanAPI />
       <PronounciationCard />

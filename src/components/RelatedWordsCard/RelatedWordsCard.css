@@ -35,3 +35,8 @@
 .related-words-card .card {
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
+
+.my-heading {
+  color:rgba(11, 11, 11, 0.753);
+  text-shadow: 2px 2px #d2d2d2;
+}
