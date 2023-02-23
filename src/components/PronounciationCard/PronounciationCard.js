@@ -44,7 +44,7 @@ function PronunciationCard() {
         <Card.Body className="p-0 m-0 col-8">
           <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly pb-3">
             <div className="syllables col-12 col-md-4 d-flex flex-column justify-content-center">
-              <h3 className="m-2 p-0">Ready to pronounce it?</h3>
+              <h3 className="pronounce-title m-2 p-0">Ready to pronounce it?</h3>
               <p className="syllable-breakdown m-2 p-0">
                 {apiStatus.syllables.join(" - ")}
               </p>
