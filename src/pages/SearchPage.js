@@ -15,7 +15,7 @@ import "../pages/searchPage.css";
 function SearchPage() {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [searchedWord, setSearchedWord] = useState("");
+  const [searchedWord, setSearchedWord] = useState("investigate");
   const [setScrabbleScore] = useState(0);
 
   function SearchForm() {
