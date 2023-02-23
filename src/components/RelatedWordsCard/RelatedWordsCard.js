@@ -5,17 +5,16 @@ import { SearchContext } from "../../context/SearchContext";
 import "./RelatedWordsCard.css";
 
 function generateList(words, message, word) {
-  console.log(words);
   if (!words || words.length === 0) {
     words = undefined;
   }
-  console.log(words);
+
   if (!words) {
     return (
       <li className="list-group-item border-0" key="error">
         {`There are no ${message} ${word}`}
       </li>
-    )
+    );
   } else {
     return words.map((item) => {
       return (
@@ -49,7 +48,11 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Rhyming Words</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.rhymes, 'words that rhyme with', apiStatus.word)}
+                    {generateList(
+                      apiStatus.rhymes,
+                      "words that rhyme with",
+                      apiStatus.word
+                    )}
                   </ul>
                 </Card.Body>
               </Card>
@@ -59,7 +62,11 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Synonyms</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.synonyms, 'synonyms for', apiStatus.word)}
+                    {generateList(
+                      apiStatus.synonyms,
+                      "synonyms for",
+                      apiStatus.word
+                    )}
                   </ul>
                 </Card.Body>
               </Card>
@@ -69,7 +76,11 @@ function RelatedWordsCard() {
                 <Card.Body>
                   <Card.Title className="p-0 mb-3">Antonyms</Card.Title>
                   <ul className="list-group">
-                    {generateList(apiStatus.antonyms, 'antonyms for', apiStatus.word)}
+                    {generateList(
+                      apiStatus.antonyms,
+                      "antonyms for",
+                      apiStatus.word
+                    )}
                   </ul>
                 </Card.Body>
               </Card>
