@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { SearchContext } from "../context/SearchContext";
+import "../components/wordcard.css"
 
 function WordCard({ searchError }) {
   const { apiStatus } = useContext(SearchContext);
@@ -31,19 +32,10 @@ function WordCard({ searchError }) {
           <Card.Subtitle className="mb-2 text-muted">
             {apiStatus.partOfSpeech}
           </Card.Subtitle>
-          <Card.Text>{apiStatus.definition}</Card.Text>
           <Card.Text>
             <strong>Syllables:</strong> {apiStatus.syllables.join("-")}
           </Card.Text>
-          {/* <Card.Text>
-            <strong>Synonyms:</strong> {apiStatus.synonyms.join(", ")}
-          </Card.Text>
-          <Card.Text>
-            <strong>Antonyms:</strong> {apiStatus.antonyms.join(", ")}
-          </Card.Text>
-          <Card.Text>
-            <strong>Rhyming words:</strong> {apiStatus.rhymes.join("-")}
-          </Card.Text> */}
+          <Card.Text>{apiStatus.definition}</Card.Text>
         </Card.Body>
       </Card>
     );
