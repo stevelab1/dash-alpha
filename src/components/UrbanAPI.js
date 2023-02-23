@@ -13,7 +13,6 @@ import "../components/UrbanAPI.css";
 // Create a new context
 //export const SearchContext = createContext({});
 
-
 function UrbanAPI() {
     const { searchInput, 
         // setSearchInput, setApiStatus
@@ -40,15 +39,13 @@ function UrbanAPI() {
             };
 
             axios.request(options).then(function (response) {
-                console.log(response.data.list[0].definition);
-                console.log(response.data.list[0].example);
                 setUrban({
                     definition: response.data.list[0].definition,
                     example: response.data.list[0].example,
                 })
 
             }).catch(function (error) {
-                console.error(error);
+                
             });
         }, [
         searchInput
@@ -61,7 +58,7 @@ function UrbanAPI() {
                     <Card.Title >Urban-dictionary definition</Card.Title>
 
                     <Card.Text>
-                        <p>{urban.definition}</p>
+                        {urban.definition}
                         <br></br>
                         Example: {urban.example}
                     </Card.Text>
@@ -72,11 +69,6 @@ function UrbanAPI() {
             </Card>
         </div>
     )
-    // <div className="urban">
-    //     <h2>{urban.definition}</h2>
-    //     <h3>{urban.example}</h3>
-    // </div>
-    //)
 };
 export default UrbanAPI;
 
