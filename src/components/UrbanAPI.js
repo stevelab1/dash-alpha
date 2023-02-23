@@ -61,7 +61,7 @@ function UrbanAPI() {
                     <Card.Title >Urban-dictionary definition</Card.Title>
 
                     <Card.Text>
-                        <p>{urban.definition}</p>
+                        {urban.definition}
                         <br></br>
                         Example: {urban.example}
                     </Card.Text>
