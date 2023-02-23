@@ -27,12 +27,12 @@ function WordCard({ searchError }) {
     // Otherwise, display the word breakdown
     return (
       <Card style={{ border: "none" }}>
-        <Card.Body>
-          <Card.Title>{apiStatus.word}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
+        <Card.Body className="bodycard">
+          <Card.Title className="bodytitle">{apiStatus.word}</Card.Title>
+          <Card.Subtitle className="bodysubtitle mb-2 text-muted">
             {apiStatus.partOfSpeech}
           </Card.Subtitle>
-          <Card.Text>
+          <Card.Text className="bodytext">
             <strong>Syllables:</strong> {apiStatus.syllables.join("-")}
           </Card.Text>
           <Card.Text>{apiStatus.definition}</Card.Text>
