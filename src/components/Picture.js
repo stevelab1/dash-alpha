@@ -15,7 +15,12 @@ const Picture = ({ word }) => {
           }
         }
       );
-      setImageUrl(response.data.photos[0].src.medium);
+      if (response.data.photos.length === 0) {
+        setImageUrl("");
+      } else {
+        setImageUrl(response.data.photos[0].src.medium);
+      }
+      
     };
 
     fetchPicture();

@@ -39,7 +39,7 @@ function RelatedWordsCard() {
         <Card className="related-words-card col-12 col-lg-12 p-3 mx-auto border-0">
           <Card.Body className="p-0 m-0">
             <Card.Title className="p-0 mb-3">
-              <h2 class="my-heading">Words related to {apiStatus.word}</h2>
+              <h2 className="my-heading">Words related to {apiStatus.word}</h2>
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
             <div className="d-flex flex-column flex-md-row flex-grow-1 justify-content-evenly pb-3">

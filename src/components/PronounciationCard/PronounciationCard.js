@@ -30,7 +30,6 @@ function PronunciationCard() {
       });
       await audio.play();
     } catch (error) {
-      console.error(error);
       setErrorMessage("Unable to load pronunciation. Try another word.");
     }
   };
