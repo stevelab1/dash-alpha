@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Card, Alert } from "react-bootstrap";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../../context/SearchContext";
 import TypewriterAlert from "./TypewriterAlert";
-import "../components/wordcard.css";
+import "./wordcard.css";
 
 function WordCard({ searchError }) {
   const { apiStatus } = useContext(SearchContext);

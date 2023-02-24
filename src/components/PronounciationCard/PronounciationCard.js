@@ -19,16 +19,19 @@ function PronunciationCard() {
       const response = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${apiStatus.word}`
       );
-      const phonetics = response.data[0]?.phonetics;
-      if (!phonetics) {
-        throw new Error("Unable to find phonetics for this word.");
+      if (response.data.length !== 0) {
+        const phonetics = response.data[0]?.phonetics;
+        if (!phonetics) {
+          throw new Error("Unable to find phonetics for this word.");
+        } else {
+          const audioUrl = phonetics[0].audio;
+          const audio = new Audio(audioUrl);
+          audio.addEventListener("error", () => {
+            setErrorMessage("Unable to play audio pronunciation.");
+          });
+          await audio.play();
+        }
       }
-      const audioUrl = phonetics[0].audio;
-      const audio = new Audio(audioUrl);
-      audio.addEventListener("error", () => {
-        setErrorMessage("Unable to play audio pronunciation.");
-      });
-      await audio.play();
     } catch (error) {
       setErrorMessage("Unable to load pronunciation. Try another word.");
     }
@@ -43,7 +46,9 @@ function PronunciationCard() {
         <Card.Body className="p-0 m-0 col-8">
           <div className="d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly pb-3">
             <div className="syllables col-12 col-md-4 d-flex flex-column justify-content-center">
-              <h3 className="pronounce-title m-2 p-0">Ready to pronounce it?</h3>
+              <h3 className="pronounce-title m-2 p-0">
+                Ready to pronounce it?
+              </h3>
               <p className="syllable-breakdown m-2 p-0">
                 {apiStatus.syllables.join(" - ")}
               </p>

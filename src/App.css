@@ -27,7 +27,8 @@
   align-items: center;
 }
 
-.input-group input[type="text"], .input-group button {
+.input-group input[type="text"],
+.input-group button {
   box-sizing: border-box;
   height: 40px;
   border-radius: 10px;
@@ -66,14 +67,20 @@
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
-
-
-
