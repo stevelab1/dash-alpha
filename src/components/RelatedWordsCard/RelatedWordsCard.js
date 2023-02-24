@@ -4,12 +4,7 @@ import { SearchContext } from "../../context/SearchContext";
 
 import "./RelatedWordsCard.css";
 
-function removeDuplicates(words) {
-  return words.filter((item, index) => words.indexOf(item) === index);
-}
-
 function generateList(words, message, word) {
-  words = removeDuplicates(words);
   if (!words || words.length === 0) {
     words = undefined;
   }
