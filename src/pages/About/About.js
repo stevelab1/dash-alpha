@@ -8,7 +8,7 @@ const About = () => {
         <h1 className="title">Investig8 Word Search</h1>
 
         <h2>Look up words.</h2>
-        <h3>For learners, travelers, and logophiles.</h3>
+        <h3>For learners, travelers, and wordsmiths.</h3>
         <p className="description">
           Investig8 word search is a quick, convenient, free, educational, and
           entertaining one-stop info page explaining the ins and outs of every
