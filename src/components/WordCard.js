@@ -1,30 +1,50 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { SearchContext } from "../context/SearchContext";
-import "../components/wordcard.css"
+import TypewriterAlert from "./TypewriterAlert";
+import "../components/wordcard.css";
 
-function WordCard({ searchError }) {
+function WordCard({ searchedWord = "investigate", searchError }) {
   const { apiStatus } = useContext(SearchContext);
 
+  const [synonyms, setSynonyms] = useState([]);
+  const [antonyms, setAntonyms] = useState([]);
+  const [rhymes, setRhymes] = useState([]);
+
+  useEffect(() => {
+    setSynonyms(apiStatus.synonyms);
+    setAntonyms(apiStatus.antonyms);
+    setRhymes(apiStatus.rhymes);
+  }, [apiStatus]);
+
   if (searchError) {
-    // If there is a search error, display the error message in a yellow alert
     return (
       <Alert variant="warning" className="mt-3">
         {searchError}
       </Alert>
     );
   } else if (Object.keys(apiStatus).length === 0) {
-    // If there is no data yet, display a message to the user in a blue alert
-    return null;
-  } else if (apiStatus.success === false) {
-    // If the API call was not successful, display an error message in a red alert
     return (
-      <Alert variant="danger" className="mt-3">
-        No results for your search. Please try another word.
-      </Alert>
+      <Card style={{ border: "none" }}>
+        <Card.Body className="bodycard">
+          <Card.Title className="bodytitle">Investig8</Card.Title>
+          <Card.Subtitle className="bodysubtitle mb-2 text-muted">
+            verb
+          </Card.Subtitle>
+          <Card.Text className="bodytext">
+            <strong>Syllables:</strong> in-ves-ti-gate
+          </Card.Text>
+
+          <Card.Text>
+            Look up words. Find definitions, related images, examples,
+            associated words, slang, even your scabble score
+          </Card.Text>
+        </Card.Body>
+      </Card>
     );
+  } else if (apiStatus.success === false) {
+    return <TypewriterAlert />;
   } else {
-    // Otherwise, display the word breakdown
     return (
       <Card style={{ border: "none" }}>
         <Card.Body className="bodycard">

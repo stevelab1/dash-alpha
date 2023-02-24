@@ -26,17 +26,17 @@ function SearchPage() {
       event.preventDefault();
 
       setApiStatus({
-          word: "",
-          definition: "",
-          partOfSpeech: "",
-          syllables: [],
-          synonyms: [],
-          antonyms: [],
-          rhymes: [],
-          phonetics: null,
-          success: false,
-          error: true,
-        });
+        word: "",
+        definition: "",
+        partOfSpeech: "",
+        syllables: [],
+        synonyms: [],
+        antonyms: [],
+        rhymes: [],
+        phonetics: null,
+        success: false,
+        error: true,
+      });
 
       setIsLoading(true);
       try {
@@ -173,7 +173,7 @@ function SearchPage() {
         <div className="card-container container my-5">
           <div className="row">
             <div className="col-md-6">
-              <WordCard searchError={searchError}/>
+              <WordCard searchedWord={searchedWord} searchError={searchError} />
             </div>
             <div className="col-md-6">
               <Picture word={searchedWord} />
