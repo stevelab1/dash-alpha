@@ -29,10 +29,6 @@ Ali is tutoring his cousin in English at school. She recently moved to the UK fr
 - `npm start` runs the app in development mode.
   Open [http://localhost:3000](http://localhost:3000)
 
-## Testing
-
-`npm test` launches tests
-
 ## Reporting issues
 
 ### Suggesting features, improvements, bug fixes
