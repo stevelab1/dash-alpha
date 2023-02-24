@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { SearchContext } from '../context/SearchContext';
+import React, { useContext } from "react";
+import { Form, Button } from "react-bootstrap";
+import { SearchContext } from "../context/SearchContext";
 
 const SearchForm = () => {
   const { searchInput, setSearchInput } = useContext(SearchContext);

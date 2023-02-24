@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Hero from '../components/Hero/Hero';
-import WordsAPI from '../components/WordsAPI';
-import Scrabble from '../components/Scrabble';
+import React, { useState } from "react";
+import Hero from "../components/Hero/Hero";
+import WordsAPI from "../components/WordsAPI";
+import Scrabble from "../components/Scrabble";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (searchInput) => {
     setSearchTerm(searchInput);

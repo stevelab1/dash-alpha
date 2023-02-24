@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
 import { Spinner, Button } from "react-bootstrap";
-import WordCard from "../../components/WordCard/WordCard";
-import Scrabble from "../../components/scrabble/Scrabble";
-import { calculateScrabbleScore } from "../../utils/scrabbleUtils";
-
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
+
 import Hero from "../../components/Hero/Hero";
+import WordCard from "../../components/WordCard/WordCard";
+import Picture from "../../components/Picture";
+import Scrabble from "../../components/scrabble/Scrabble";
 import RelatedWordsCard from "../../components/RelatedWordsCard/RelatedWordsCard";
 import PronounciationCard from "../../components/PronounciationCard/PronounciationCard";
-import Picture from "../../components/Picture";
+import { calculateScrabbleScore } from "../../utils/scrabbleUtils";
+
 import "./searchPage.css";
 
 function SearchPage() {

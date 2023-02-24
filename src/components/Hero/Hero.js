@@ -1,5 +1,6 @@
-import "./Hero.css";
 import { Container, Row, Col } from "react-bootstrap";
+
+import "./Hero.css";
 
 const Hero = ({ children }) => {
   return (
@@ -10,7 +11,8 @@ const Hero = ({ children }) => {
             <div className="hero-text">
               <h1 className="hero-title">What's the Word?</h1>
               <p className="hero-subtitle">
-                Search for a word, any word, make it fun? make it serious? We've got you covered!
+                Search for a word, any word, make it fun? make it serious? We've
+                got you covered!
               </p>
             </div>
           </Col>
@@ -24,6 +26,5 @@ const Hero = ({ children }) => {
     </div>
   );
 };
-
 
 export default Hero;

@@ -15,8 +15,6 @@ const Contact = () => {
       className="Pages"
       // data-test="contact-page"
     >
-      
-
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={handleSubmit} className="form-background">
           <p>Find us on: </p>

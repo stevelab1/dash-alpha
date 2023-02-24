@@ -1,46 +1,49 @@
 #pronounciation-card {
-    background-color: #f2f2f2;
-    background-image: linear-gradient(to bottom, rgba(242, 242, 242, 0.6),  rgba(242, 242, 242, 0.7)), url('Pronounce.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-
-#play-button {
-    height: 95px;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 20px 40px;
-    font-size: 2em;
+  background-color: #f2f2f2;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(242, 242, 242, 0.6),
+      rgba(242, 242, 242, 0.7)
+    ),
+    url("Pronounce.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
+#play-button {
+  height: 95px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px 40px;
+  font-size: 2em;
+}
 
 @media (max-width: 892px) {
-    #play-button {
-      height: 85px;
-      font-size: 1.5em;
-      padding: 20px 30px;
-    }
+  #play-button {
+    height: 85px;
+    font-size: 1.5em;
+    padding: 20px 30px;
   }
-  
-  @media (max-width: 765px) {
-    #play-button {
-        height: 75px;
-        font-size: 1.5em;
-    }
-  }
-  
-  @media (max-width: 575px) {
-    #play-button {
-        height: 75px;
-        font-size: 1.5em;
-    }
-  }
+}
 
+@media (max-width: 765px) {
+  #play-button {
+    height: 75px;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 575px) {
+  #play-button {
+    height: 75px;
+    font-size: 1.5em;
+  }
+}
 
 p.syllable-breakdown {
   font-size: 24px;
 }
 
 .pronounce-title {
-    text-shadow: 2px 2px #c0c0c0;
+  text-shadow: 2px 2px #c0c0c0;
 }

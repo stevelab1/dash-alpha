@@ -62,8 +62,12 @@ const Scrabble = ({ word }) => {
               <div className="col-3 col-md-3 col-lg-2" key={index}>
                 <Card className="scrabble-tile">
                   <div className="text-center">
-                    <div className="scrabble-tile-letter">{letterScore.letter}</div>
-                    <div className="scrabble-tile-score">{letterScore.score}</div>
+                    <div className="scrabble-tile-letter">
+                      {letterScore.letter}
+                    </div>
+                    <div className="scrabble-tile-score">
+                      {letterScore.score}
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -72,7 +76,7 @@ const Scrabble = ({ word }) => {
         </div>
       </div>
     </div>
-);
+  );
 };
 
 export default Scrabble;

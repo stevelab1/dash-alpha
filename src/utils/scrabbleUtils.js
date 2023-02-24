@@ -1,4 +1,4 @@
-// For the `calculateScrabbleScore` function 
+// For the `calculateScrabbleScore` function
 
 const letterScores = {
   A: 1,

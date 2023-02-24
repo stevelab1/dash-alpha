@@ -15,7 +15,11 @@ const TypewriterAlert = () => {
   }, []);
 
   return (
-    <Alert variant="danger" className="mt-3" style={{backgroundColor: '#f8f9fa'}}>
+    <Alert
+      variant="danger"
+      className="mt-3"
+      style={{ backgroundColor: "#f8f9fa" }}
+    >
       {showTypewriter ? (
         <span className="typewriter-text">
           No definition found. We are working on it...
