@@ -7,7 +7,7 @@ const TypewriterAlert = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowTypewriter(false);
-    }, 6000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);

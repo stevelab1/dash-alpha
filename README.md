@@ -2,7 +2,7 @@
 
 ## Description
 
-Look up words. Find definitions, related images, examples, associated words, slang, even your scabble score. For learners, travellers, and wordsmiths.
+Look up words. Find definitions, related images, examples, associated words, slang, even your scrabble score. For learners, travellers, and wordsmiths.
 
 ## Deployment
 

@@ -1,21 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Card, Alert } from "react-bootstrap";
 import { SearchContext } from "../context/SearchContext";
 import TypewriterAlert from "./TypewriterAlert";
 import "../components/wordcard.css";
 
-function WordCard({ searchedWord = "investigate", searchError }) {
+function WordCard({ searchError }) {
   const { apiStatus } = useContext(SearchContext);
-
-  const [synonyms, setSynonyms] = useState([]);
-  const [antonyms, setAntonyms] = useState([]);
-  const [rhymes, setRhymes] = useState([]);
-
-  useEffect(() => {
-    setSynonyms(apiStatus.synonyms);
-    setAntonyms(apiStatus.antonyms);
-    setRhymes(apiStatus.rhymes);
-  }, [apiStatus]);
 
   if (searchError) {
     return (
@@ -37,7 +27,7 @@ function WordCard({ searchedWord = "investigate", searchError }) {
 
           <Card.Text>
             Look up words. Find definitions, related images, examples,
-            associated words, slang, even your scabble score
+            associated words, slang, even your scrabble score
           </Card.Text>
         </Card.Body>
       </Card>
