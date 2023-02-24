@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../../context/SearchContext";
 
 import { Card } from "react-bootstrap";
 import React, { useContext } from "react";
-import "../components/UrbanAPI.css";
+import "./UrbanAPI.css";
 
 function UrbanAPI() {
   const { searchInput } = useContext(SearchContext);
