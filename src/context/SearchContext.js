@@ -8,7 +8,6 @@ export const SearchProvider = (props) => {
   // Define the state variables for the context
   const [searchInput, setSearchInput] = useState("");
   const [apiStatus, setApiStatus] = useState({});
-  const [priorityOrder, setPriorityOrder] = useState([]);
   const [phonetics, setPhonetics] = useState("");
 
   // Set the value of the context with the state variables and functions
@@ -19,8 +18,6 @@ export const SearchProvider = (props) => {
         setSearchInput,
         apiStatus,
         setApiStatus,
-        priorityOrder,
-        setPriorityOrder,
         phonetics,
         setPhonetics,
       }}
